@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  FaChartLine,
-  FaFilter,
-  FaChartBar,
-  FaCheckCircle
-} from "react-icons/fa";
+import { FaChartLine, FaFilter, FaChartBar, FaCheckCircle } from "react-icons/fa";
 
 const features = [
   {
@@ -52,19 +47,19 @@ export const Features = () => {
         </div>
 
         {/* Cards */}
-        <div className="row justify-content-center">
+        <div className="row justify-content-center g-4">
           {features.map((item, index) => (
-            <div key={index} className="col-lg-3 col-md-6 col-sm-12 mb-5 d-flex">
-              {/* d-flex ensures equal height in Bootstrap */}
-              <div className="feature-card">
+            <div key={index} className="col-lg-3 col-md-6 col-sm-12 d-flex">
+              {/* Make card fill full height */}
+              <div className="feature-card flex-fill d-flex flex-column">
 
-                <div className={`feature-icon ${item.color}`}>
+                <div className={`feature-icon ${item.color} mb-3`}>
                   {item.icon}
                 </div>
 
                 <h4 className="feature-title">{item.title}</h4>
                 <div className="card-divider" />
-                <p>{item.text}</p>
+                <p className="mt-auto">{item.text}</p> {/* pushes text to bottom if needed */}
 
               </div>
             </div>
