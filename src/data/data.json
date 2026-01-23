@@ -1,0 +1,121 @@
+{
+  "Header": {
+    "title": "Master the Market Trend with Confidence",
+    "paragraph": "Boost your trading accuracy with OptionQuant — a professional trend identification system designed for serious traders."
+  },
+
+  "About": {
+    "paragraph": "OptionQuant is built for traders who want clarity, confidence, and consistency. It combines advanced trend logic, volatility filters, and non-repainting signals to help you trade smarter across all major markets and timeframes.",
+    "Why": [
+      "ATR-based dynamic trend engine",
+      "EMA confirmation with noise reduction",
+      "Smart candle logic for clear bias",
+      "Non-repainting, reliable signals"
+    ],
+    "Why2": [
+      "Works across all markets",
+      "Optimized for intraday & swing trading",
+      "Clear buy & sell setups",
+      "Professional risk-reward structure"
+    ]
+  },
+
+  "Features": [
+    {
+      "icon": "./img/atr.png",
+      "title": "ATR Trend Engine",
+      "text": "Dynamic volatility-based trend detection that adapts to changing market conditions."
+    },
+    {
+      "icon": "./img/ema.png",
+      "title": "EMA Trend Filter",
+      "text": "Trend confirmation with reduced noise for cleaner and more reliable signals."
+    },
+    {
+      "icon": "fa fa-bar-chart",
+      "title": "Smart Candle Logic",
+      "text": "Clear bullish and bearish candle signals that simplify decision-making."
+    },
+    {
+      "icon": "fa fa-shield",
+      "title": "Non-Repainting Signals",
+      "text": "Signals do not change after candle close, ensuring trust and consistency."
+    }
+  ],
+
+  "Services": [
+    {
+      "icon": "fa fa-star",
+      "name": "Professional Accuracy",
+      "text": "Designed for traders who demand precision and consistency in trend identification."
+    },
+    {
+      "icon": "fa fa-clock-o",
+      "name": "All Timeframes",
+      "text": "Works seamlessly across any timeframe, best optimized for 2–5 minute charts."
+    },
+    {
+      "icon": "fa fa-globe",
+      "name": "All Markets",
+      "text": "Trade indices, commodities, forex pairs, and crypto with the same logic."
+    },
+    {
+      "icon": "fa fa-lock",
+      "name": "No Monthly Fees",
+      "text": "One-time payment with lifetime access. No subscriptions, no hidden costs."
+    }
+  ],
+
+  "Gallery": [
+    {
+      "title": "Gold (XAUUSD)",
+      "largeImage": "img/markets/gold-large.png",
+      "smallImage": "img/markets/gold-small.png"
+    },
+    {
+      "title": "Indices (NIFTY, BANKNIFTY)",
+      "largeImage": "img/markets/indices-large.png",
+      "smallImage": "img/markets/indices-small.png"
+    },
+    {
+      "title": "Forex Pairs",
+      "largeImage": "img/markets/forex-large.png",
+      "smallImage": "img/markets/forex-small.png"
+    },
+    {
+      "title": "Crypto (BTC, ETH)",
+      "largeImage": "img/markets/crypto-large.png",
+      "smallImage": "img/markets/crypto-small.png"
+    }
+  ],
+
+  "Testimonials": [
+    {
+      "img": "img/testimonials/trader1.jpg",
+      "text": "\"OptionQuant completely changed how I identify trends. Clean signals and no repainting.\"",
+      "name": "Intraday Trader"
+    },
+    {
+      "img": "img/testimonials/trader2.jpg",
+      "text": "\"The risk-reward clarity alone makes this tool worth it.\"",
+      "name": "Index Options Trader"
+    }
+  ],
+
+  "Team": [
+    {
+      "img": "img/team/founder.jpg",
+      "name": "OptionQuant Team",
+      "job": "Professional Trading Systems"
+    }
+  ],
+
+  "Contact": {
+    "address": "Online Product – Available Worldwide",
+    "phone": "Support via Email",
+    "email": "support@optionquant.in",
+    "facebook": "",
+    "twitter": "",
+    "youtube": ""
+  }
+}
