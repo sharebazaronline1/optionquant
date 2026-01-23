@@ -2,6 +2,7 @@
   "name": "landingpage-react-template",
   "private": true,
   "dependencies": {
+    "@ampproject/remapping": "^2.3.0",
     "@emailjs/browser": "^4.4.1",
     "@jridgewell/sourcemap-codec": "^1.5.5",
     "@testing-library/jest-dom": "^4.2.4",

@@ -104,13 +104,13 @@ export const Contact = () => {
             </div>
 
             <div className="social-row">
-              <a href="#" className="social-btn facebook" aria-label="Facebook">
+              <a href="/" className="social-btn facebook" aria-label="Facebook">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="#" className="social-btn twitter" aria-label="Twitter">
+              <a href="/" className="social-btn twitter" aria-label="Twitter">
                 <i className="fab fa-twitter"></i>
               </a>
-              <a href="#" className="social-btn youtube" aria-label="YouTube">
+              <a href="/" className="social-btn youtube" aria-label="YouTube">
                 <i className="fab fa-youtube"></i>
               </a>
             </div>
