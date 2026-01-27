@@ -36,7 +36,7 @@ export const HowToTrade = () => {
               <div className="target-icon-wrapper">
                 <div className="target-icon">
                   {/* AIM ICON */}
-                  <FaBullseye />
+                 <FaBullseye size={60} />
                 </div>
               </div>
 
@@ -57,17 +57,16 @@ export const HowToTrade = () => {
             </div>
           </div>
 
-        </div>
+        </div>{/* How it works section */}
+<div className="target-section">
+  <div className="target-arrow">↑</div>
+  <div className="target-box">
+    <span className="target-text">
+      How It Works: Trade in the direction of the trend and trail your stop-loss along the trend line
+    </span>
+  </div>
+</div>
 
-        {/* Target section */}
-        <div className="target-section">
-          <div className="target-arrow">↑</div>
-          <div className="target-box">
-            <span className="target-text">
-              Target 1.1.5 to 1.3 Risk-Reward
-            </span>
-          </div>
-        </div>
 
       </div>
     </section>

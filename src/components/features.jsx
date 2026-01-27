@@ -5,13 +5,13 @@ const features = [
   {
     icon: <FaChartLine />,
     title: "ATR Trend Engine",
-    text: "Volatility-Based Dynamic Trailing Line",
+    text: "Volatility-Based Dynamic Trading System",
     color: "gold"
   },
   {
     icon: <FaFilter />,
     title: "EMA Trend Filter",
-    text: "Trend Confirmation & Noise Reduction",
+    text: "Trade Confirmation & Noise Reduction",
     color: "green"
   },
   {
