@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 
-const initialState = {
-  name: "",
-  email: "",
-  message: "",
-};
+const initialState = { name: "", email: "", message: "" };
 
 export const Contact = () => {
   const [formData, setFormData] = useState(initialState);
@@ -17,114 +14,69 @@ export const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     emailjs
-      .sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
-        e.target,
-        "YOUR_PUBLIC_KEY"
-      )
-      .then(
-        () => {
-          alert("Message sent successfully!");
-          setFormData(initialState);
-        },
-        (error) => {
-          alert("Failed to send message.");
-          console.error(error);
-        }
-      );
+      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_PUBLIC_KEY")
+      .then(() => {
+        alert("Message sent!");
+        setFormData(initialState);
+      })
+      .catch(() => alert("Failed to send"));
   };
 
   return (
-    <section id="contact" className="optionquant-contact">
-      <div className="container">
-        {/* Section Header */}
-        <div className="section-header text-center">
-          <h2>Get in Touch</h2>
-          <p>Send us a message and we’ll respond shortly.</p>
-        </div>
+    <footer className="oq-footer">
+      <div className="oq-container">
 
-        {/* Layout */}
-        <div className="contact-layout">
-          {/* Form */}
-          <div className="form-panel">
-            <form onSubmit={handleSubmit}>
-              <div className="field-row">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+        {/* BRAND */}
+        <div className="oq-col brand-col">
+        <span className="brand-o">O</span>
+  <span className="brand-text">ption</span>
+  <span className="brand-q">Q</span>
+  <span className="brand-text">uaant</span>
+          <p className="tagline">Professional Trend Identification System</p>
 
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                rows="4"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              />
-
-              <button type="submit" className="btn-submit">
-                Send Message
-              </button>
-            </form>
+          <div className="contact-lines">
+            <p>💬 <a href="#">Chat on WhatsApp</a></p>
+            <p>✉️ <a href="mailto:support@sharebazaaronline.in">support@sharebazaaronline.in</a></p>
           </div>
 
-          {/* Info */}
-          <div className="info-panel">
-            <h3>Contact Info</h3>
-
-            <div className="info-line">
-              <i className="fas fa-box"></i>
-              <span>SharebazaarOnline</span>
-            </div>
-
-          
-
-            <div className="info-line">
-              <i className="fas fa-envelope"></i>
-              <a href="mailto:support@optionquant.in">
-                support@sharebazaaronline.in
-              </a>
-            </div>
-
-            <div className="social-row">
-              <a href="/" className="social-btn facebook" aria-label="Facebook">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="/" className="social-btn twitter" aria-label="Twitter">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="/" className="social-btn youtube" aria-label="YouTube">
-                <i className="fab fa-youtube"></i>
-              </a>
-            </div>
+          <div className="socials">
+            <a href="#" aria-label="Facebook"><FaFacebookF /></a>
+            <a href="#" aria-label="Instagram"><FaInstagram /></a>
+            <a href="#" aria-label="YouTube"><FaYoutube /></a>
           </div>
         </div>
+
+        {/* LINKS */}
+        <div className="oq-col">
+          <h4>Links</h4>
+          <ul>
+            <li>Disclaimer</li>
+            <li>Terms</li>
+            <li>Privacy</li>
+            <li>Refund</li>
+          </ul>
+        </div>
+
+        {/* CALLBACK */}
+        <div className="oq-col callback-col">
+          <h4>Request a Callback</h4>
+
+          <form className="callback-form">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <input type="tel" placeholder="Mobile Number" required />
+            <button type="submit">📞 Call Me</button>
+          </form>
+
+          <p className="tv-note">Charts powered by TradingView</p>
+        </div>
+
       </div>
 
-      {/* Footer */}
-      <footer className="footer-bar">
-        <p>
-          © {new Date().getFullYear()} OptionQuant — Powered by
-          SharebazaarOnline.com
-        </p>
-      </footer>
-    </section>
+      <div className="oq-bottom">
+        © {new Date().getFullYear()} OptionQuaant — Powered by SharebazaarOnline
+      </div>
+    </footer>
   );
 };

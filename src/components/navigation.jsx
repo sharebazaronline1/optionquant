@@ -22,7 +22,7 @@ export const Navigation = () => {
   <span className="brand-o">O</span>
   <span className="brand-text">ption</span>
   <span className="brand-q">Q</span>
-  <span className="brand-text">uant</span>
+  <span className="brand-text">uaant</span>
 </a>
 
         </div>

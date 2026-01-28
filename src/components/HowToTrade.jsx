@@ -11,7 +11,7 @@ export const HowToTrade = () => {
           <div className="title-with-lines">
             <span className="title-line"></span>
             <h2 className="main-title">
-              How to Trade with <span className="highlight">OptionQuant</span>
+              How to Trade with <span className="highlight">OptionQuaant</span>
             </h2>
             <span className="title-line"></span>
           </div>

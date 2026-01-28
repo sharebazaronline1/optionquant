@@ -1,11 +1,11 @@
 {
   "Header": {
     "title": "Master the Market Trend with Confidence",
-    "paragraph": "Boost your trading accuracy with OptionQuant — a professional trend identification system designed for serious traders."
+    "paragraph": "Boost your trading accuracy with OptionQuaant — a professional trend identification system designed for serious traders."
   },
 
   "About": {
-    "paragraph": "OptionQuant is built for traders who want clarity, confidence, and consistency. It combines advanced trend logic, volatility filters, and non-repainting signals to help you trade smarter across all major markets and timeframes.",
+    "paragraph": "OptionQuaant is built for traders who want clarity, confidence, and consistency. It combines advanced trend logic, volatility filters, and non-repainting signals to help you trade smarter across all major markets and timeframes.",
     "Why": [
       "ATR-based dynamic trend engine",
       "EMA confirmation with noise reduction",
@@ -92,7 +92,7 @@
   "Testimonials": [
     {
       "img": "img/testimonials/trader1.jpg",
-      "text": "\"OptionQuant completely changed how I identify trends. Clean signals and no repainting.\"",
+      "text": "\"OptionQuaant completely changed how I identify trends. Clean signals and no repainting.\"",
       "name": "Intraday Trader"
     },
     {
@@ -105,7 +105,7 @@
   "Team": [
     {
       "img": "img/team/founder.jpg",
-      "name": "OptionQuant Team",
+      "name": "OptionQuaant Team",
       "job": "Professional Trading Systems"
     }
   ],
@@ -113,7 +113,7 @@
   "Contact": {
     "address": "Online Product – Available Worldwide",
     "phone": "Support via Email",
-    "email": "support@optionquant.in",
+    "email": "support@optionquaant.in",
     "facebook": "",
     "twitter": "",
     "youtube": ""

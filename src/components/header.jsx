@@ -12,9 +12,9 @@ export const Header = () => {
     let s = 0, r = 0, u = 0;
 
     const interval = setInterval(() => {
-      s = Math.min(s + 1, 15);
+      s = Math.min(s + 1, 10);
       r = Math.min(r + 0.1, 4.8);
-      u = Math.min(u + 50, 3700);
+      u = Math.min(u + 50, 300);
 
       setCount({
         strategies: s,
@@ -39,25 +39,25 @@ export const Header = () => {
               <p>Professional Trend Identification System</p>
             
   <h4>
-                <span>O</span>ption<span>Q</span>uant
+                <span>O</span>ption<span>Q</span>uaant
               </h4>
               </div>
             {/* Heading */}
             <h1>
-              Master the Market Trend <br />
-              <span>with Confidence</span>
+            One Tool to Define Trend <br />
+              <span>Entry & Exit</span>
             </h1>
 
             <p className="hero-subtext">
-              Boost Your Trading Accuracy with OptionQuant
+              Boost Your Trading Accuracy with OptionQuaant
               <br />
-              Lifetime Access <b>₹14,998</b> (<s>₹1,49,000</s>)
+              One Year Access <b>₹14,998</b> (<s>₹1,49,000</s>)
             </p>
 
             {/* CTA */}
             <a href="#how-to-trade" className="btn-optionquant">
               How It Works
-              <span>See How OptionQuant Improves Your Trades</span>
+              <span>See How OptionQuaant Improves Your Trades</span>
             </a>
 
             {/* Trust Stats */}

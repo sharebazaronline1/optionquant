@@ -85,7 +85,7 @@ hr {
   font-size: 24px;
   font-weight: 700;
   color: #333;
-  text-transform: uppercase;
+ 
 }
 #menu.navbar-default .navbar-nav > li > a {
   font-family: "Lato", sans-serif;
@@ -272,169 +272,201 @@ header .intro-text {
 }
 
 /* Section */
-.optionquant-contact {
-  background: #0b0f14;
-  padding: 80px 0 0;
+.oq-footer {
+  background: #0a0e15;
   color: #e5e7eb;
+  padding: 60px 20px 24px;
+}
+.oq-footer .brand-o,
+.oq-footer .brand-q {
+  font-family: "Raleway", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffc107;
 }
 
-/* Header */
-.section-header h2 {
-  font-size: 28px;
-  font-weight: 800;
-  margin-bottom: 8px;
-}
+.oq-footer .brand-text {
+  color: #ffffff;
 
-.section-header p {
-  color: #9aa4ad;
-  font-size: 14px;
+  font-weight: 600;
 }
-
-/* Layout */
-.contact-layout {
+.oq-container {
+  max-width: 1200px;
+  margin: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 26px;
-  max-width: 1050px;
-  margin: 40px auto 0;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  align-items: start;
 }
 
-@media (max-width: 900px) {
-  .contact-layout {
-    grid-template-columns: 1fr;
-  }
+/* BRAND */
+.brand-col .logo {
+  font-size: 56px;
+  font-weight: 800;
+  color: #ffc107;
 }
 
-/* Panels */
-.form-panel,
-.info-panel {
+.tagline {
+  font-size: 14px;
+  color: #9ca3af;
+  margin: 8px 0 16px;
+}
+
+.contact-lines p {
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+.contact-lines a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+/* SOCIALS */
+.socials {
+  margin-top: 16px;
+  display: flex;
+  gap: 14px;
+}
+
+.socials a {
+  width: 36px;
+  height: 36px;
+  background: #1e293b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffc107;
+  font-size: 16px;
+  transition: all 0.25s;
+}
+
+.socials a:hover {
+  background: #ffc107;
+  color: #0a0e15;
+}
+
+/* LINKS */
+.oq-col h4 {
+  color: white;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.oq-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.oq-col ul li {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.oq-col ul li:hover {
+  color: #ffc107;
+}
+
+/* CALLBACK */
+.callback-col {
   background: #10141e;
   border-radius: 12px;
   padding: 24px;
-  border: 1px solid rgba(255,255,255,0.05);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
-/* Form */
-.field-row {
+.callback-form {
   display: flex;
-  gap: 14px;
-  margin-bottom: 14px;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
 }
 
-@media (max-width: 600px) {
-  .field-row {
-    flex-direction: column;
-  }
-}
-
-.form-panel input,
-.form-panel textarea {
-  width: 100%;
-  background: #111827;
-  border: 1px solid #1e293b;
-  border-radius: 8px;
+.callback-form input {
   padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #1e293b;
+  background: #111827;
+  color: white;
   font-size: 14px;
-  color: #e5e7eb;
 }
 
-.form-panel input:focus,
-.form-panel textarea:focus {
-  border-color: #ffc107;
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(255,193,7,0.15);
-}
-
-.form-panel textarea {
-  resize: vertical;
-  min-height: 110px;
-}
-
-/* Button */
-.btn-submit {
-  margin-top: 16px;
-  background: linear-gradient(180deg, #ffc107, #ffb300);
-  color: #000;
+.callback-form button {
+  background: #ffc107;
   border: none;
-  padding: 12px 28px;
+  padding: 12px;
   border-radius: 8px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.25s;
 }
 
-.btn-submit:hover {
+.callback-form button:hover {
+  background: #ffb300;
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(12, 11, 10, 0.45);
 }
 
-/* Info */
-.info-panel h3 {
-  font-size: 18px;
-  margin-bottom: 16px;
-  color: #ffffff;
-}
-
-.info-line {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  margin-bottom: 12px;
-  color: #ffffff;
-}
-
-.info-line i {
-  color: #ffc107;
-  width: 18px;
-}
-
-.info-line a {
-  color: #60a5fa;
-  text-decoration: none;
-}
-
-.info-line a:hover {
-  text-decoration: underline;
-}
-
-/* Social */
-.social-row {
-  display: flex;
-  gap: 12px;
-  margin-top: 18px;
-}
-
-.social-btn {
-  width: 34px;
-  height: 34px;
-  background: #1e293b;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #94a3b8;
-  transition: all 0.25s;
-}
-
-.social-btn:hover {
-  background: #ffc107;
-  color: #0b0f14;
-}
-
-/* Footer */
-.footer-bar {
-  margin-top: 60px;
-  padding: 18px 0;
-  background: #0b0f14;
-  border-top: 1px solid rgba(255,255,255,0.04);
+.tv-note {
+  margin-top: 14px;
+  font-size: 12px;
+  color: #6b7280;
   text-align: center;
 }
 
-.footer-bar p {
+/* BOTTOM BAR */
+.oq-bottom {
+  text-align: center;
+  margin-top: 40px;
   font-size: 13px;
   color: #6b7280;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 16px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .oq-container {
+    text-align: center;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+
+  .callback-col {
+    margin-top: 16px;
+  }
+}
+/* Bigger logo in footer */
+.oq-footer .brand-col span {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.oq-footer .brand-o,
+.oq-footer .brand-q {
+  text-transform: uppercase;
+  font-size: 38px; /* make O & Q bigger */
+  color: #ffc107;
+}
+
+/* Mobile adjust */
+@media (max-width: 600px) {
+  .oq-footer .brand-col span {
+    font-size: 26px;
+  }
+
+  .oq-footer .brand-o,
+  .oq-footer .brand-q {
+    font-family: "Raleway", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+    
+  }
 }
 
 /* ===== OptionQuant Navbar Theme ===== */
@@ -455,7 +487,11 @@ header .intro-text {
 /* Yellow O & Q */
 .optionquant-nav .brand-o,
 .optionquant-nav .brand-q {
+  font-family: "Raleway", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
   color: #ffc107;
+  text-transform: uppercase;
 }
 
 /* Remaining letters */
@@ -1232,10 +1268,17 @@ header .intro-text {
 }
 
 .target-text {
-  white-space: nowrap;
+  white-space: normal;          /* allow wrap */
+  overflow-wrap: break-word;    /* break long text */
+  word-break: break-word;
+  line-height: 1.4;
   font-size: clamp(14px, 3.5vw, 16px);
-  font-weight: 200;
+  font-weight: 500;
   color: #fffefc;
+  display: block;
+  text-align: center;
+
+
 }
 
 /* Mobile adjustments */
