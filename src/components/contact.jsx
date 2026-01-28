@@ -1,8 +1,4 @@
-import React, { useState } from "react";
-import emailjs from "emailjs-com";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
-
-const initialState = { name: "", email: "", message: "" };
 
 export const Contact = () => {
 
