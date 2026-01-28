@@ -5,23 +5,6 @@ import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 const initialState = { name: "", email: "", message: "" };
 
 export const Contact = () => {
-  const [formData, setFormData] = useState(initialState);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_PUBLIC_KEY")
-      .then(() => {
-        alert("Message sent!");
-        setFormData(initialState);
-      })
-      .catch(() => alert("Failed to send"));
-  };
 
   return (
     <footer className="oq-footer">
