@@ -15,14 +15,14 @@ export const Contact = () => {
           <p className="tagline">Professional Trend Identification System</p>
 
           <div className="contact-lines">
-            <p>💬 <a href="#">Chat on WhatsApp</a></p>
+            <p>💬 <a href="/">Chat on WhatsApp</a></p>
             <p>✉️ <a href="mailto:support@sharebazaaronline.in">support@sharebazaaronline.in</a></p>
           </div>
 
           <div className="socials">
-            <a href="#" aria-label="Facebook"><FaFacebookF /></a>
-            <a href="#" aria-label="Instagram"><FaInstagram /></a>
-            <a href="#" aria-label="YouTube"><FaYoutube /></a>
+            <a href="/" aria-label="Facebook"><FaFacebookF /></a>
+            <a href="/" aria-label="Instagram"><FaInstagram /></a>
+            <a href="/" aria-label="YouTube"><FaYoutube /></a>
           </div>
         </div>
 
