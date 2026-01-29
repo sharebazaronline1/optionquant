@@ -18,7 +18,7 @@ export const Navigation = () => {
             <span className="icon-bar"></span>
           </button>
 
-         <a className="navbar-brand page-scroll" href="#page-top">
+         <a className="navbar-brand page-scroll" href="/">
   <span className="brand-o">O</span>
   <span className="brand-text">ption</span>
   <span className="brand-q">Q</span>

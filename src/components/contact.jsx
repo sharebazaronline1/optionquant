@@ -33,7 +33,8 @@ export const Contact = () => {
             <li>Disclaimer</li>
             <li>Terms</li>
             <li>Privacy</li>
-            <li>Refund</li>
+            <li> <a href="/refund">Refund</a></li>
+              <li> <a href="/gallery">Trading Gallery</a></li>
           </ul>
         </div>
 

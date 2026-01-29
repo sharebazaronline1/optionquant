@@ -33,10 +33,10 @@ export const Features = () => {
     <section id="features" className="optionquant-features">
       <div className="container">
 
-        {/* Header */}
+        {/* HEADER */}
         <div className="section-header text-center">
           <h2>
-            Why Choose <span className="highlight">OptionQuaant</span>?
+            Why Choose <span className="highlight">OptionQuant</span>?
           </h2>
 
           <div className="subtitle-wrapper">
@@ -46,20 +46,28 @@ export const Features = () => {
           </div>
         </div>
 
-        {/* Cards */}
-        <div className="row justify-content-center g-4">
+        {/* IMAGE */}
+        <div className="features-image-wrapper">
+          <img
+            src="img/features.png"
+            alt="Trading Features"
+            className="features-image"
+          />
+        </div>
+
+        {/* CARDS */}
+        <div className="row justify-content-center g-4 mt-4">
           {features.map((item, index) => (
             <div key={index} className="col-lg-3 col-md-6 col-sm-12 d-flex">
-              {/* Make card fill full height */}
-              <div className="feature-card flex-fill d-flex flex-column">
+              <div className="feature-card flex-fill">
 
-                <div className={`feature-icon ${item.color} mb-3`}>
+                <div className={`feature-icon ${item.color}`}>
                   {item.icon}
                 </div>
 
                 <h4 className="feature-title">{item.title}</h4>
                 <div className="card-divider" />
-                <p className="mt-auto">{item.text}</p> {/* pushes text to bottom if needed */}
+                <p>{item.text}</p>
 
               </div>
             </div>
