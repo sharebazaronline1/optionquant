@@ -1,17 +1,61 @@
+import { useState } from "react";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 
 export const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    mobile: "",
+  });
+
+  const [status, setStatus] = useState(""); // success message
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus("");
+
+    const formUrl =
+      "https://docs.google.com/forms/d/e/1FAIpQLSdt07P9r4dpumMjaQ96Xku0nzpGn4ojgPUJUXLWeuJBdP5zBw/formResponse";
+
+    const data = new URLSearchParams();
+    data.append("entry.1695068244", formData.name);
+    data.append("entry.499238012", formData.email);
+    data.append("entry.799755491", formData.mobile);
+
+    fetch(formUrl, {
+      method: "POST",
+      mode: "no-cors",
+      body: data,
+    })
+      .then(() => {
+        setStatus(" Thank you! We will contact you shortly.");
+        setFormData({ name: "", email: "", mobile: "" });
+      })
+      .catch(() => {
+        setStatus(" Something went wrong. Please try again.");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   return (
-    <footer className="oq-footer">
+    <footer id="contact" className="oq-footer">
       <div className="oq-container">
 
         {/* BRAND */}
         <div className="oq-col brand-col">
-        <span className="brand-o">O</span>
-  <span className="brand-text">ption</span>
-  <span className="brand-q">Q</span>
-  <span className="brand-text">uaant</span>
+          <span className="brand-o">O</span>
+          <span className="brand-text">ption</span>
+          <span className="brand-q">Q</span>
+          <span className="brand-text">uaant</span>
+
           <p className="tagline">Professional Trend Identification System</p>
 
           <div className="contact-lines">
@@ -30,23 +74,51 @@ export const Contact = () => {
         <div className="oq-col">
           <h4>Links</h4>
           <ul>
-            <li>Disclaimer</li>
             <li>Terms</li>
-            <li>Privacy</li>
-            <li> <a href="/refund">Refund</a></li>
-              <li> <a href="/gallery">Trading Gallery</a></li>
+            <li><a href="/refund">Refund</a></li>
+            <li>Disclaimer & Privacy</li>
+            <li><a href="/gallery">Trading Gallery</a></li>
           </ul>
         </div>
 
-        {/* CALLBACK */}
+        {/* CALLBACK FORM */}
         <div className="oq-col callback-col">
           <h4>Request a Callback</h4>
 
-          <form className="callback-form">
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <input type="tel" placeholder="Mobile Number" required />
-            <button type="submit">📞 Call Me</button>
+          <form className="callback-form" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+
+            <input
+              type="tel"
+              name="mobile"
+              placeholder="Mobile Number"
+              value={formData.mobile}
+              onChange={handleChange}
+              required
+            />
+
+            <button type="submit" disabled={loading}>
+              {loading ? "Submitting..." : "📞 Call Me"}
+            </button>
+
+            {/* ✅ Success / Error Message */}
+            {status && <p className="form-status">{status}</p>}
           </form>
 
           <p className="tv-note">Charts powered by TradingView</p>

@@ -59,7 +59,7 @@ export const Markets = () => {
 
         {/* Footer text */}
         <div className="markets-footer">
-          Works on Any Timeframe <span>(15m–30m)for second-screen confirmation</span>
+          Works on Any Timeframe <span>(15m–30m) </span>for second-screen confirmation
         </div>
 
       </div>

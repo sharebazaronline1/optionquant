@@ -36,9 +36,9 @@ export const Header = () => {
             {/* Brand */}
             <div className="hero-brand">
             
-              <p>Professional Trend Identification System</p>
+              
             
-  <h4>
+  <h4><br></br>
                 <span>O</span>ption<span>Q</span>uaant
               </h4>
               </div>
@@ -56,8 +56,8 @@ export const Header = () => {
 
             {/* CTA */}
             <a href="#how-to-trade" className="btn-optionquant">
-              How It Works
-              <span>See How OptionQuaant Improves Your Trades</span>
+             Get Started
+              
             </a>
 
             {/* Trust Stats */}

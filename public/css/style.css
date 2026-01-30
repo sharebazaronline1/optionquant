@@ -316,6 +316,16 @@ header .intro-text {
   font-size: 14px;
   margin: 6px 0;
 }
+.form-status {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #00c853; /* green success */
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 
 .contact-lines a {
   color: #60a5fa;

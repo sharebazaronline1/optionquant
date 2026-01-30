@@ -43,41 +43,43 @@ const App = () => {
     }
   }, []);
 
-  return (
-    <Router>
-      {/* Navigation is always visible */}
-      <Navigation />
+return (
+  <Router>
+    {/* Navigation always visible */}
+    <Navigation />
 
-      <Routes>
-        {/* Home / Landing Page */}
-        <Route
-          path="/"
-          element={
-            <>
-              <Header data={landingPageData.Header} />
-              <Features data={landingPageData.Features} />
-              <Markets />
-              <HowToTrade />
-              <LifetimeCTA />
-              <Contact data={landingPageData.Contact} />
-            </>
-          }
-        />
+    <Routes>
+      {/* Home */}
+      <Route
+        path="/"
+        element={
+          <>
+            <Header data={landingPageData.Header} />
+            <Features data={landingPageData.Features} />
+            <Markets />
+            <HowToTrade />
+            <LifetimeCTA />
+          </>
+        }
+      />
 
-        {/* Individual pages */}
-        <Route path="/features" element={<Features data={landingPageData.Features} />} />
-        <Route path="/markets" element={<Markets />} />
-         <Route path="/refund" element={<RefundPolicy />} />
-        <Route path="/how-to-trade" element={<HowToTrade />} />
-        <Route path="/gallery" element={<ChartCarousel />} />
-        <Route path="/lifetime" element={<LifetimeCTA />} />
-        <Route path="/contact" element={<Contact data={landingPageData.Contact} />} />
+      {/* Pages */}
+      <Route path="/features" element={<Features data={landingPageData.Features} />} />
+      <Route path="/markets" element={<Markets />} />
+      <Route path="/refund" element={<RefundPolicy />} />
+      <Route path="/how-to-trade" element={<HowToTrade />} />
+      <Route path="/gallery" element={<ChartCarousel />} />
+      <Route path="/lifetime" element={<LifetimeCTA />} />
 
-        {/* 404 */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
-  );
+      {/* 404 */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+
+    {/* ✅ Contact always visible on all pages */}
+    <Contact data={landingPageData.Contact} />
+  </Router>
+);
+
 };
 
 export default App;

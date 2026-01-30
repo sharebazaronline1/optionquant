@@ -11,21 +11,21 @@ export const LifetimeCTA = () => {
 
           {/* Heading */}
           <h2>
-            Get Lifetime Access to <span>OptionQuaant</span> for <b>₹14,998</b>
+            Get Yearly Access to <span>OptionQuaant</span> for <b>₹14,998</b>
           </h2>
 
           {/* Subtitle with small dividers */}
           <div className="cta-divider-small"></div>
 
           <p className="cta-meta">
-            No Monthly Fees • No Repaints • 100% Control
+           Precise Entry Signals • No Repaints • 100% Control
           </p>
 
           <div className="cta-divider-small"></div>
 
           {/* CTA Button */}
           <a href="#contact" className="cta-button">
-            Get Started Now
+            How It Works
           </a>
 
           {/* Bottom long divider */}
