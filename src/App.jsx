@@ -8,6 +8,8 @@ import { HowToTrade } from "./components/HowToTrade";
 import { Markets } from "./components/Markets";
 import {RefundPolicy} from "./components/RefundPolicy"
 import {ChartCarousel} from "./components/ChartGallery"
+import {TermsAndConditions} from "./components/TermsAndConditions";
+import {DisclaimerAndPrivacy} from "./components/DisclaimerAndPrivacy";
 import { Contact } from "./components/contact";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
@@ -67,6 +69,8 @@ return (
       <Route path="/features" element={<Features data={landingPageData.Features} />} />
       <Route path="/markets" element={<Markets />} />
       <Route path="/refund" element={<RefundPolicy />} />
+      <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+<Route path="/disclaimer-privacy" element={<DisclaimerAndPrivacy />} />
       <Route path="/how-to-trade" element={<HowToTrade />} />
       <Route path="/gallery" element={<ChartCarousel />} />
       <Route path="/lifetime" element={<LifetimeCTA />} />
