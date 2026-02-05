@@ -122,7 +122,7 @@ export const Contact = () => {
             {status && <p className="form-status">{status}</p>}
           </form>
 
-          <p className="tv-note">Charts powered by TradingView</p>
+          
         </div>
 
       </div>

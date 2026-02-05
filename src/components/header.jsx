@@ -51,7 +51,7 @@ export const Header = () => {
             <p className="hero-subtext">
               Boost Your Trading Accuracy with OptionQuaant
               <br />
-              One Year Access <b>₹14,998</b> (<s>₹1,49,000</s>)
+              One Year Access 
             </p>
 
             {/* CTA */}
