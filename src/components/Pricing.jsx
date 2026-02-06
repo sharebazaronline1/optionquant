@@ -1,5 +1,5 @@
 import React from "react";
-import { FaCheck, FaTimes, FaWhatsapp, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import { FaCheck, FaTimes, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 const plans = [
   {
