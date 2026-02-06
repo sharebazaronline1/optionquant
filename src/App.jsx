@@ -10,6 +10,7 @@ import {RefundPolicy} from "./components/RefundPolicy"
 import {ChartCarousel} from "./components/ChartGallery"
 import {TermsAndConditions} from "./components/TermsAndConditions";
 import {DisclaimerAndPrivacy} from "./components/DisclaimerAndPrivacy";
+import {Pricing} from "./components/Pricing"
 import { Contact } from "./components/contact";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
@@ -72,6 +73,7 @@ return (
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
 <Route path="/disclaimer-privacy" element={<DisclaimerAndPrivacy />} />
       <Route path="/how-to-trade" element={<HowToTrade />} />
+       <Route path="/pricing" element={<Pricing />} />
       <Route path="/gallery" element={<ChartCarousel />} />
       <Route path="/lifetime" element={<LifetimeCTA />} />
 

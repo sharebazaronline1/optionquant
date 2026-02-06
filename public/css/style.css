@@ -1750,3 +1750,240 @@ ul li a:hover {
     height: 240px;
   }
 }
+
+/* ===== PRICING SECTION ===== */
+.pricing-section {
+  background: #0a0e15;
+  padding: clamp(60px, 10vw, 100px) 0;
+  color: #e5e7eb;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.section-header {
+  text-align: center;
+  margin-bottom: clamp(48px, 8vw, 72px);
+}
+
+.section-header h2 {
+  font-size: clamp(28px, 6vw, 42px);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.section-header p {
+  font-size: clamp(15px, 3.5vw, 17px);
+  color: #94a3b8;
+  margin: 0;
+}
+
+.gold-underline {
+  height: 3px;
+  width: clamp(100px, 20vw, 160px);
+  background: #ffc107;
+  margin: 16px auto;
+  border-radius: 2px;
+}
+
+/* Pricing Grid */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(24px, 5vw, 40px);
+  margin-bottom: 60px;
+}
+
+.pricing-card {
+  background: #10141e;
+  border-radius: 16px;
+  padding: clamp(28px, 5vw, 40px) 24px;
+  border: 1px solid rgba(255, 193, 7, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.35s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.pricing-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  border-color: rgba(255, 193, 7, 0.25);
+}
+
+/* Popular Plan Highlight */
+.pricing-card.popular {
+  border: 2px solid #ffc107;
+  box-shadow: 0 20px 50px rgba(255, 193, 7, 0.15);
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.popular-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffc107;
+  color: #000;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* Plan Name & Price */
+.plan-name {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.plan-price {
+  font-size: 36px;
+  font-weight: 900;
+  color: #ffc107;
+  margin-bottom: 32px;
+}
+
+.currency {
+  font-size: 24px;
+  vertical-align: super;
+}
+
+/* Features List */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  flex-grow: 1;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  margin-bottom: 16px;
+  color: #cbd5e1;
+}
+
+.included {
+  color: #34d399;
+}
+
+.excluded {
+  color: #f87171;
+}
+
+/* Button */
+.btn-select {
+  margin-top: auto;
+  background: linear-gradient(90deg, #ffc107, #ffca28);
+  color: #000;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-select:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(255, 193, 7, 0.4);
+}
+
+/* Support Section */
+.support-section {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.support-section h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.support-section p {
+  font-size: 15px;
+  color: #94a3b8;
+  margin-bottom: 28px;
+}
+
+.support-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px 48px;
+}
+
+.support-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.support-item .icon {
+  font-size: 28px;
+  color: #ffc107;
+}
+
+.support-item span {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.support-item a {
+  color: #60a5fa;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.support-item a:hover {
+  color: #93c5fd;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .pricing-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-card.popular {
+    transform: none;
+  }
+
+  .support-options {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header h2 {
+    font-size: 32px;
+  }
+
+  .plan-price {
+    font-size: 32px;
+  }
+}

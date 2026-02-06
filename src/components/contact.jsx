@@ -59,7 +59,7 @@ export const Contact = () => {
           <p className="tagline">Professional Trend Identification System</p>
 
           <div className="contact-lines">
-            <p>💬 <a href="/">Chat on WhatsApp</a></p>
+            <p>💬 <a href="https://wa.me/919511480021">Chat on WhatsApp</a></p>
             <p>✉️ <a href="mailto:support@sharebazaaronline.in">support@sharebazaaronline.in</a></p>
           </div>
 
@@ -78,7 +78,7 @@ export const Contact = () => {
             <li><a href="/refund">Refund</a></li>
             <li><a href="/disclaimer-privacy">Disclaimer & Privacy</a></li>
             <li><a href="/gallery">Gallery</a></li>
-            <li><a href="#lifetime">Pricing</a></li>
+            <li><a href="/pricing">Pricing</a></li>
           </ul>
         </div>
 
