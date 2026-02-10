@@ -6,6 +6,7 @@ import { Features } from "./components/features";
 import { LifetimeCTA } from "./components/LifetimeCTA";
 import { HowToTrade } from "./components/HowToTrade";
 import { Markets } from "./components/Markets";
+import { CheckOut } from "./components/Checkout";
 import {RefundPolicy} from "./components/RefundPolicy"
 import {ChartCarousel} from "./components/ChartGallery"
 import {TermsAndConditions} from "./components/TermsAndConditions";
@@ -76,6 +77,7 @@ return (
        <Route path="/pricing" element={<Pricing />} />
       <Route path="/gallery" element={<ChartCarousel />} />
       <Route path="/lifetime" element={<LifetimeCTA />} />
+      <Route path="/checkout" element={<CheckOut />} />
 
       {/* 404 */}
       <Route path="*" element={<NotFound />} />

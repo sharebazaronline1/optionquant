@@ -9,24 +9,27 @@ export const Header = () => {
   });
 
   useEffect(() => {
-    let s = 0, r = 0, u = 0;
+  let s = 0, r = 0, u = 0;
 
-    const interval = setInterval(() => {
-      s = Math.min(s + 1, 10);
-      r = Math.min(r + 0.1, 4.8);
-      u = Math.min(u + 50, 300);
+  const interval = setInterval(() => {
+    s = Math.min(s + 1, 24);
+    r = Math.min(r + 0.1, 4.8);
+    u = Math.min(u + 50, 300);
 
-      setCount({
-        strategies: s,
-        rating: r.toFixed(1),
-        users: u,
-      });
+    setCount({
+      strategies: s,
+      rating: Number(r.toFixed(1)), // keep it numeric
+      users: u,
+    });
 
-      if (s === 15 && r >= 4.8 && u === 3700) clearInterval(interval);
-    }, 20);
+    if (s >= 24 && r >= 4.8 && u >= 300) {
+      clearInterval(interval);
+    }
+  }, 20);
 
-    return () => clearInterval(interval);
-  }, []);
+  return () => clearInterval(interval);
+}, []);
+
 
   return (
     <header id="header" className="optionquant-hero">
@@ -51,12 +54,12 @@ export const Header = () => {
             <p className="hero-subtext">
               Boost Your Trading Accuracy with OptionQuaant
               <br />
-              One Year Access 
+             
             </p>
 
             {/* CTA */}
             <a href="#how-to-trade" className="btn-optionquant">
-             Get Started
+            Start Journey
               
             </a>
 
@@ -64,7 +67,7 @@ export const Header = () => {
             <div className="trust-stats">
               <div className="stat-box">
                 <FaChartLine className="stat-icon" />
-                <h3>{count.strategies}+</h3>
+                <h3>{count.strategies}</h3>
                 <p>Tested Strategies</p>
               </div>
 

@@ -56,7 +56,7 @@ export const Contact = () => {
           <span className="brand-q">Q</span>
           <span className="brand-text">uaant</span>
 
-          <p className="tagline">Professional Trend Identification System</p>
+          <p className="tagline">Professional Trade Identification System</p>
 
           <div className="contact-lines">
             <p>💬 <a href="https://wa.me/919511480021">Chat on WhatsApp</a></p>
@@ -74,11 +74,12 @@ export const Contact = () => {
         <div className="oq-col">
           <h4>Links</h4>
           <ul>
-            <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
-            <li><a href="/refund">Refund</a></li>
-            <li><a href="/disclaimer-privacy">Disclaimer & Privacy</a></li>
+            
             <li><a href="/gallery">Gallery</a></li>
             <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
+            <li><a href="/refund">Refund and Cancellation</a></li>
+            <li><a href="/disclaimer-privacy">Disclaimer & Privacy</a></li>
           </ul>
         </div>
 
