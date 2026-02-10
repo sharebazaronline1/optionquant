@@ -149,7 +149,7 @@ export const Pricing = () => {
           <p>
             Note: For instant order placement and precise trade execution, a Fyers trading account is required.
           </p>
-          <a href="#" className="fyers-link">
+          <a href="/pricing" className="fyers-link">
             Open Fyers Account → Get 10% extra discount
           </a>
         </div>
