@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaCheck, FaTimes, FaInfoCircle } from "react-icons/fa";
+import { FaCheck, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const features = [

@@ -228,7 +228,7 @@ export const CheckOut = () => {
           <p>
             Note: For instant order placement and precise trade execution, a Fyers trading account is required.
           </p>
-          <a href="#" className="fyers-link">Open Fyers Account →</a>
+          <a href="/checkout" className="fyers-link">Open Fyers Account →</a>
           <p>Get additional 10% discount on the OptionQuant Buy & Sell Signal Indicator.</p>
         </div>
       </div>
