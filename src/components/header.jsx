@@ -58,7 +58,7 @@ export const Header = () => {
             </p>
 
             {/* CTA */}
-            <a href="#how-to-trade" className="btn-optionquant">
+            <a href="/pricing" className="btn-optionquant">
             Start Journey
               
             </a>

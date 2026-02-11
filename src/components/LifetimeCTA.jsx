@@ -24,7 +24,7 @@ export const LifetimeCTA = () => {
           <div className="cta-divider-small"></div>
 
           {/* CTA Button */}
-          <a href="#contact" className="cta-button">
+          <a href="/pricing" className="cta-button">
             Subscribe Now
           </a>
 

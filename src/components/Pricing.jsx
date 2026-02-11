@@ -62,7 +62,7 @@ export const Pricing = () => {
       <div className="container">
         <header className="section-header">
           <h2>Choose Your Plan</h2>
-          <p>Powerful trend identification tools for every trader</p>
+          <p>Powerful Trade identification tools for every trader</p>
           <div className="gold-underline"></div>
         </header>
 
@@ -149,9 +149,10 @@ export const Pricing = () => {
           <p>
             Note: For instant order placement and precise trade execution, a Fyers trading account is required.
           </p>
-          <a href="/pricing" className="fyers-link">
-            Open Fyers Account → Get 10% extra discount
+          <a href="https://signup.fyers.in/?utm-source=AP-Leads&utm-medium=AP3297" className="fyers-link">
+            Open Fyers Account → 
           </a>
+          <p>Open a Fyers account and request a callback to get 10% extra off.</p>
         </div>
       </div>
     </section>

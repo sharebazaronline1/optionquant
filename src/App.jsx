@@ -8,7 +8,7 @@ import { HowToTrade } from "./components/HowToTrade";
 import { Markets } from "./components/Markets";
 import { CheckOut } from "./components/Checkout";
 import {RefundPolicy} from "./components/RefundPolicy"
-import {ChartCarousel} from "./components/ChartGallery"
+import {ChartGallery} from "./components/ChartGallery"
 import {TermsAndConditions} from "./components/TermsAndConditions";
 import {DisclaimerAndPrivacy} from "./components/DisclaimerAndPrivacy";
 import {Pricing} from "./components/Pricing"
@@ -75,7 +75,7 @@ return (
 <Route path="/disclaimer-privacy" element={<DisclaimerAndPrivacy />} />
       <Route path="/how-to-trade" element={<HowToTrade />} />
        <Route path="/pricing" element={<Pricing />} />
-      <Route path="/gallery" element={<ChartCarousel />} />
+      <Route path="/gallery" element={<ChartGallery />} />
       <Route path="/lifetime" element={<LifetimeCTA />} />
       <Route path="/checkout" element={<CheckOut />} />
 
@@ -83,7 +83,6 @@ return (
       <Route path="*" element={<NotFound />} />
     </Routes>
 
-    {/* ✅ Contact always visible on all pages */}
     <Contact data={landingPageData.Contact} />
   </Router>
 );
