@@ -16,7 +16,7 @@ const features = [
 
 const plans = [
   {
-    name: "Basic",
+    name: "Starter",
     priceMonthly: 4999,
     priceAnnual: 35999,
     discount: "40% off",
@@ -24,7 +24,7 @@ const plans = [
     included: [true, true, false, false, false, false, false],
   },
   {
-    name: "Premium",
+    name: "Pro",
     priceMonthly: 9999,
     priceAnnual: 59999,
     discount: null,
@@ -32,7 +32,7 @@ const plans = [
     included: [true, true, true, true, false, false, false],
   },
   {
-    name: "Advanced",
+    name: "Elite",
     priceMonthly: 19999,
     priceAnnual: 143999,
     discount: null,
