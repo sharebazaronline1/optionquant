@@ -115,9 +115,14 @@ export const Contact = () => {
               required
             />
 
-            <button type="submit" disabled={loading}>
-              {loading ? "Submitting..." : "📞 Call Me"}
-            </button>
+            <p className="enquiry-text">
+  - For <b>Coupon Code</b>, <b>Payment</b> or <b>Fyers Account</b> related enquiry, please submit your details and we will contact you.
+</p>
+
+<button type="submit" disabled={loading}>
+  {loading ? "Submitting..." : "📞 Call Me"}
+</button>
+
 
             {/* ✅ Success / Error Message */}
             {status && <p className="form-status">{status}</p>}
