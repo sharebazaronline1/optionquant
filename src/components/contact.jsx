@@ -6,6 +6,7 @@ export const Contact = () => {
     name: "",
     email: "",
     mobile: "",
+    enquiry: "", 
   });
 
   const [status, setStatus] = useState(""); // success message
@@ -27,6 +28,7 @@ export const Contact = () => {
     data.append("entry.1695068244", formData.name);
     data.append("entry.499238012", formData.email);
     data.append("entry.799755491", formData.mobile);
+    data.append("entry.724766818", formData.enquiry); 
 
     fetch(formUrl, {
       method: "POST",
@@ -35,7 +37,7 @@ export const Contact = () => {
     })
       .then(() => {
         setStatus(" Thank you! We will contact you shortly.");
-        setFormData({ name: "", email: "", mobile: "" });
+        setFormData({ name: "", email: "", mobile: "", enquiry: "" });
       })
       .catch(() => {
         setStatus(" Something went wrong. Please try again.");
@@ -74,7 +76,6 @@ export const Contact = () => {
         <div className="oq-col">
           <h4>Links</h4>
           <ul>
-            
             <li><a href="/gallery">Gallery</a></li>
             <li><a href="/pricing">Pricing</a></li>
             <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
@@ -115,20 +116,26 @@ export const Contact = () => {
               required
             />
 
-            <p className="enquiry-text">
-  - For <b>Coupon Code</b>, <b>Payment</b> or <b>Fyers Account</b> related enquiry, please submit your details and we will contact you.
-</p>
+           <select
+  name="enquiry"
+  value={formData.enquiry}
+  onChange={handleChange}
+  required
+>
+  <option value="">Select type</option>
+  <option value="Coupon Code">Coupon Code</option>
+  <option value="Payment">Payment</option>
+  <option value="Enquiry">Enquiry</option>
+</select>
 
-<button type="submit" disabled={loading}>
-  {loading ? "Submitting..." : "📞 Call Me"}
-</button>
-
-
-            {/* ✅ Success / Error Message */}
-            {status && <p className="form-status">{status}</p>}
-          </form>
 
           
+            <button type="submit" disabled={loading}>
+              {loading ? "Submitting..." : "Request Callback"}
+            </button>
+
+            {status && <p className="form-status">{status}</p>}
+          </form>
         </div>
 
       </div>
