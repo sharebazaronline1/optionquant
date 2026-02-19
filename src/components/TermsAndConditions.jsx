@@ -7,13 +7,13 @@ export const TermsAndConditions = () => {
         <header className="policy-header">
           <h1>Terms and Conditions</h1>
           <p className="policy-subtitle">
-            These Terms and Conditions govern the access to and use of the OptionQuant indicator.
+            These Terms and Conditions govern the access to and use of the OptionQuaant indicator.
           </p>
         </header>
 
         <article className="policy-body">
           <p className="policy-intro">
-            These Terms and Conditions govern the access to and use of the OptionQuant indicator, including all related scripts, tools, features, documentation, and associated materials provided through TradingView or any other distribution platform. By purchasing, accessing, installing, or using OptionQuant, you agree to be legally bound by these Terms and Conditions. If you do not agree with any part of these terms, you must not use the indicator.
+            These Terms and Conditions govern the access to and use of the OptionQuaant indicator, including all related scripts, tools, features, documentation, and associated materials provided through TradingView or any other distribution platform. By purchasing, accessing, installing, or using OptionQuaant, you agree to be legally bound by these Terms and Conditions. If you do not agree with any part of these terms, you must not use the indicator.
           </p>
 
           <hr />
@@ -21,21 +21,21 @@ export const TermsAndConditions = () => {
           <section>
             <h2>1. Nature of the Product</h2>
             <p>
-              OptionQuant is a technical analysis indicator designed for educational and informational purposes only. It is not financial advice, investment advice, or a trading recommendation. The indicator is a visual decision-support tool based on historical price data and mathematical calculations. It does not predict market movements or guarantee profitable outcomes.
+              OptionQuaant is a technical analysis indicator designed for educational and informational purposes only. It is not financial advice, investment advice, or a trading recommendation. The indicator is a visual decision-support tool based on historical price data and mathematical calculations. It does not predict market movements or guarantee profitable outcomes.
             </p>
           </section>
 
           <section>
             <h2>2. Eligibility</h2>
             <p>
-              You must be at least 18 years old and legally capable of entering into a binding agreement to use OptionQuant. By using this product, you confirm that you meet these requirements.
+              You must be at least 18 years old and legally capable of entering into a binding agreement to use OptionQuaant. By using this product, you confirm that you meet these requirements.
             </p>
           </section>
 
           <section>
             <h2>3. License and Usage Rights</h2>
             <p>
-              Upon purchase or approved access, you are granted a limited, non-transferable, non-exclusive license to use OptionQuant on your personal TradingView account. This license does not grant ownership of the code, logic, or intellectual property behind the indicator.
+              Upon purchase or approved access, you are granted a limited, non-transferable, non-exclusive license to use OptionQuaant on your personal TradingView account. This license does not grant ownership of the code, logic, or intellectual property behind the indicator.
             </p>
             <p>
               You may not:
@@ -54,21 +54,21 @@ export const TermsAndConditions = () => {
           <section>
             <h2>4. Intellectual Property</h2>
             <p>
-              All intellectual property rights, including the name OptionQuant, indicator logic, design, algorithms, visuals, and documentation, remain the exclusive property of the creator. Unauthorized use, duplication, or imitation is strictly prohibited.
+              All intellectual property rights, including the name OptionQuaant, indicator logic, design, algorithms, visuals, and documentation, remain the exclusive property of the creator. Unauthorized use, duplication, or imitation is strictly prohibited.
             </p>
           </section>
 
           <section>
             <h2>5. Payments and Pricing</h2>
             <p>
-              All payments made for OptionQuant are final and non-refundable unless otherwise explicitly stated. Pricing, features, and access terms may change at any time without prior notice. Existing users will retain access according to the plan purchased at the time of subscription unless misuse or violation of terms occurs.
+              All payments made for OptionQuaant are final and non-refundable unless otherwise explicitly stated. Pricing, features, and access terms may change at any time without prior notice. Existing users will retain access according to the plan purchased at the time of subscription unless misuse or violation of terms occurs.
             </p>
           </section>
 
           <section>
             <h2>6. No Guarantee of Performance</h2>
             <p>
-              OptionQuant does not guarantee accuracy, reliability, or profitability. Market conditions are unpredictable, and signals generated by the indicator may fail. You acknowledge that all trading decisions are made solely at your own risk.
+              OptionQuaant does not guarantee accuracy, reliability, or profitability. Market conditions are unpredictable, and signals generated by the indicator may fail. You acknowledge that all trading decisions are made solely at your own risk.
             </p>
           </section>
 
@@ -84,21 +84,21 @@ export const TermsAndConditions = () => {
               <li>Verifying signals before acting upon them</li>
             </ul>
             <p>
-              The creators of OptionQuant are not liable for any financial losses, damages, or trading outcomes resulting from the use of the indicator.
+              The creators of OptionQuaant are not liable for any financial losses, damages, or trading outcomes resulting from the use of the indicator.
             </p>
           </section>
 
           <section>
             <h2>8. Service Availability</h2>
             <p>
-              Access to OptionQuant depends on TradingView’s platform and internet connectivity. Any interruptions, delays, or technical issues caused by TradingView, internet providers, or third-party services are beyond our control, and we are not responsible for such disruptions.
+              Access to OptionQuaant depends on TradingView’s platform and internet connectivity. Any interruptions, delays, or technical issues caused by TradingView, internet providers, or third-party services are beyond our control, and we are not responsible for such disruptions.
             </p>
           </section>
 
           <section>
             <h2>9. Termination of Access</h2>
             <p>
-              Access to OptionQuant may be revoked without notice if:
+              Access to OptionQuaant may be revoked without notice if:
             </p>
             <ul className="agreement-list">
               <li>These Terms and Conditions are violated</li>
@@ -113,24 +113,24 @@ export const TermsAndConditions = () => {
           <section>
             <h2>10. Modifications to the Indicator</h2>
             <p>
-              We reserve the right to update, modify, or improve OptionQuant at any time. Features may be added, removed, or changed to enhance performance and usability.
+              We reserve the right to update, modify, or improve OptionQuaant at any time. Features may be added, removed, or changed to enhance performance and usability.
             </p>
           </section>
 
           <section>
             <h2>11. Limitation of Liability</h2>
             <p>
-              Under no circumstances shall the creators, developers, or affiliates of OptionQuant be liable for any direct, indirect, incidental, or consequential losses arising from the use or inability to use the indicator.
+              Under no circumstances shall the creators, developers, or affiliates of OptionQuaant be liable for any direct, indirect, incidental, or consequential losses arising from the use or inability to use the indicator.
             </p>
           </section>
 
           <section>
             <h2>12. Acceptance of Terms</h2>
             <p>
-              By using OptionQuant, you confirm that you have read, understood, and agreed to these Terms and Conditions. Continued use of the indicator constitutes ongoing acceptance of these terms.
+              By using OptionQuaant, you confirm that you have read, understood, and agreed to these Terms and Conditions. Continued use of the indicator constitutes ongoing acceptance of these terms.
             </p>
             <p>
-              If you do not agree with these Terms and Conditions, you must discontinue use of OptionQuant immediately.
+              If you do not agree with these Terms and Conditions, you must discontinue use of OptionQuaant immediately.
             </p>
           </section>
         </article>

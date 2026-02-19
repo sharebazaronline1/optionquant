@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 export const CheckOut = () => {
   const location = useLocation();
   const selectedPlan = location.state?.selectedPlan || {
-    name: "OptionQuant Premium",
+    name: "OptionQuaant Premium",
     price: 14999,
     isAnnual: false,
   };
@@ -202,7 +202,7 @@ export const CheckOut = () => {
                   <span>
                     I confirm that I have read, understood, and agreed to the{" "}
                     <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer">
-                      OptionQuant Terms & Conditions
+                      OptionQuaant Terms & Conditions
                     </a>
                     ,{" "}
                     <a href="/refund" target="_blank" rel="noopener noreferrer">
@@ -322,7 +322,9 @@ export const CheckOut = () => {
             Note: For instant order placement and precise trade execution, a
             Fyers trading account is required.
           </p>
-          <a href="https://signup.fyers.in/?utm-source=AP-Leads&utm-medium=AP3297" className="fyers-link">
+          <a href="https://signup.fyers.in/?utm-source=AP-Leads&utm-medium=AP3297" className="fyers-link"
+  target="_blank"
+  rel="noopener noreferrer">
             Open Fyers Account →
           </a>
           <p>

@@ -36,7 +36,9 @@ export const Features = () => {
         {/* HEADER */}
         <div className="section-header text-center">
           <h2>
-            Why Choose <span className="highlight">OptionQuant</span>?
+            Why Choose <h4>
+                <span>O</span>ption<span>Q</span>uaant ?
+              </h4>
           </h2>
 
           <div className="subtitle-wrapper">

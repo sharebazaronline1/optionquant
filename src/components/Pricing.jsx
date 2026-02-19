@@ -123,15 +123,18 @@ export const Pricing = () => {
 
                 <ul className="support-list">
                   <li className="support-title">Support</li>
-                  <li>
+                  
+                   <li>
+                    {plan.name === "Elite" ? <FaCheck className="check" /> : <FaTimes className="cross" />} Call 
+                  </li>
+                   <li>
                     <FaCheck className="check" /> Email
                   </li>
                   <li>
-                    {plan.name !== "Basic" ? <FaCheck className="check" /> : <FaTimes className="cross" />} WhatsApp
+                    {plan.name !== "Starter" ? <FaCheck className="check" /> : <FaTimes className="cross" />} WhatsApp
                   </li>
-                  <li>
-                    {plan.name === "Advanced" ? <FaCheck className="check" /> : <FaTimes className="cross" />} Call / WhatsApp
-                  </li>
+                 
+                 
                 </ul>
 
                 <button
@@ -149,7 +152,9 @@ export const Pricing = () => {
           <p>
             Note: For instant order placement and precise trade execution, a Fyers trading account is required.
           </p>
-          <a href="https://signup.fyers.in/?utm-source=AP-Leads&utm-medium=AP3297" className="fyers-link">
+          <a href="https://signup.fyers.in/?utm-source=AP-Leads&utm-medium=AP3297" className="fyers-link"
+  target="_blank"
+  rel="noopener noreferrer">
             Open Fyers Account → 
           </a>
           <p>Open a Fyers account and request a callback to get 10% extra off.</p>

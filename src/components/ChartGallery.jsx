@@ -4,100 +4,273 @@ const testimonials = [
   {
     id: 1,
     name: "Amit Verma",
-    photo: "https://randomuser.me/api/portraits/men/32.jpg",
-    text: "I have been using OptionQuant strategies for the past few months. The signals are structured and easy to follow. My risk control has improved significantly.",
+    stars: 5,
+    photo: "https://randomuser.me/api/portraits/men/39.jpg",
+    text: "Before using OptionQuaant strategies, I was mostly trading based on emotions and random ideas. Now I follow proper entry and exit rules. My losses are controlled and I feel much more confident in my trading decisions.",
     image: "img/charts/1.jpeg"
   },
   {
     id: 2,
     name: "Sneha Kapoor",
-    photo: "https://randomuser.me/api/portraits/women/44.jpg",
-    text: "What I like most is the discipline-based approach. Trades are planned properly instead of being random. It helped me avoid overtrading.",
+    stars: 4,
+    photo: "https://randomuser.me/api/portraits/women/46.jpg",
+    text: "The strategies helped me reduce overtrading. I now wait patiently for proper setups instead of jumping into every move. It has improved both my discipline and mindset.",
     image: "img/charts/2.jpeg"
   },
   {
     id: 3,
     name: "Rahul Sharma",
+    stars: 4,
     photo: "https://randomuser.me/api/portraits/men/65.jpg",
-    text: "The system gives me more confidence before entering trades. I follow structured setups now instead of emotional decisions.",
+    text: "Earlier I used to exit trades out of fear. After following OptionQuaant rules, I respect stop loss and targets. Even when trades fail, I feel more in control.",
     image: "img/charts/3.jpeg"
   },
   {
     id: 4,
     name: "Neha Singh",
-    photo: "https://randomuser.me/api/portraits/women/68.jpg",
-    text: "Earlier I depended on tips. Now I rely on defined strategies and risk-based trades. My results are more consistent than before.",
+    stars: 5,
+    photo: "",
+    text: "I moved away from tips and social media noise. The strategies feel professional and structured. I now understand why I enter a trade instead of blindly following others.",
     image: "img/charts/4.jpeg"
   },
   {
     id: 5,
     name: "Karthik Reddy",
+    stars: 4,
     photo: "https://randomuser.me/api/portraits/men/45.jpg",
-    text: "The analysis style is simple and practical. Even complex option strategies are explained in a way that is easy to apply.",
+    text: "The biggest improvement for me is risk management. Each trade has a plan, and that has reduced stress and impulsive decisions.",
     image: "img/charts/5.jpeg"
   },
   {
     id: 6,
     name: "Pooja Nair",
-    photo: "https://randomuser.me/api/portraits/women/12.jpg",
-    text: "I like that the focus is on process and discipline rather than unrealistic profit claims. It feels professional and reliable.",
+    stars: 5,
+    photo: "https://randomuser.me/api/portraits/women/84.jpg",
+    text: "Trading feels more systematic now. I don’t panic during market swings because I know my risk beforehand. This has improved my confidence a lot.",
     image: "img/charts/6.jpeg"
   },
   {
     id: 7,
     name: "Manish Gupta",
-    photo: "https://randomuser.me/api/portraits/men/22.jpg",
-    text: "I mainly use it for intraday setups. The clarity around entries and exits has helped reduce impulsive trades.",
+    stars: 3,
+    photo: "",
+    text: "Earlier I took too many trades in a day. Now I focus only on selected setups. My trading has become more controlled and less emotional.",
     image: "img/charts/7.jpeg"
   },
   {
     id: 8,
     name: "Priya Menon",
+    stars: 4,
     photo: "https://randomuser.me/api/portraits/women/25.jpg",
-    text: "OptionQuaant helped me understand market context better instead of just chasing price movements.",
+    text: "The strategies are based on logic and market structure. I feel more prepared before entering trades instead of reacting to price movements.",
     image: "img/charts/8.jpeg"
   },
   {
     id: 9,
     name: "Vikram Joshi",
-    photo: "https://randomuser.me/api/portraits/men/18.jpg",
-    text: "The biggest improvement for me is consistency. Losses are controlled and trades feel more planned than emotional.",
+    stars: 5,
+    photo: "https://randomuser.me/api/portraits/men/12.jpg",
+    text: "Consistency has improved for me. Even small profits feel meaningful because they follow a proper process rather than luck.",
     image: "img/charts/9.jpeg"
-  }
+  },
+  {
+    id: 10,
+    name: "Rohit Malhotra",
+    stars: 4,
+    photo: "https://randomuser.me/api/portraits/men/58.jpg",
+    text: "The structured rules helped me avoid random trades. I now wait for confirmation and avoid chasing the market.",
+    image: "img/charts/10.jpeg"
+  },
+  {
+    id: 11,
+    name: "Anjali Desai",
+    stars: 3,
+    photo: "https://randomuser.me/api/portraits/women/75.jpg",
+    text: "What I like is that there are no false promises. The focus is on risk control and discipline rather than quick profits.",
+    image: "img/charts/11.jpeg"
+  },
+  {
+    id: 12,
+    name: "Suresh Iyer",
+    stars: 4,
+    photo: "",
+    text: "Earlier I followed news and opinions. Now I follow a proper method that gives clarity on when to trade and when to stay out.",
+    image: "img/charts/12.jpeg"
+  },
+  {
+    id: 13,
+    name: "Varun Mehta",
+    stars: 5,
+    photo: "https://randomuser.me/api/portraits/men/40.jpg",
+    text: "These strategies taught me patience. My mindset has changed from making money daily to following rules daily.",
+    image: "img/charts/1.jpeg"
+  },
+  {
+    id: 14,
+    name: "Riya Shah",
+    stars: 4,
+    photo: "",
+    text: "I feel more confident placing trades because I understand the reasoning behind them. It feels more professional now.",
+    image: "img/charts/2.jpeg"
+  },
+  {
+    id: 15,
+    name: "Nitin Arora",
+    stars: 3,
+    photo: "https://randomuser.me/api/portraits/men/29.jpg",
+    text: "The strategies helped me control emotional trading during volatile markets.",
+    image: "img/charts/3.jpeg"
+  },
+  {
+    id: 16,
+    name: "Pallavi Joshi",
+    stars: 5,
+    photo: "",
+    text: "My trades are more systematic now. I don’t feel confused while entering or exiting positions.",
+    image: "img/charts/4.jpeg"
+  },
+  {
+    id: 17,
+    name: "Deepak Kumar",
+    stars: 4,
+    photo: "https://randomuser.me/api/portraits/men/35.jpg",
+    text: "Clear structure and defined rules reduced my losses. That itself is a big improvement.",
+    image: "img/charts/5.jpeg"
+  },
+  {
+    id: 18,
+    name: "Shreya Kulkarni",
+    stars: 5,
+    photo: "https://randomuser.me/api/portraits/women/12.jpg",
+    text: "It feels like a solid system rather than random signals. That gives peace of mind.",
+    image: "img/charts/6.jpeg"
+  },
+  {
+    id: 19,
+    name: "Arjun Patel",
+    stars: 4,
+    photo: "https://randomuser.me/api/portraits/men/48.jpg",
+    text: "Good balance between risk and reward. I feel safer taking trades now.",
+    image: "img/charts/7.jpeg"
+  },
+  {
+    id: 20,
+    name: "Megha Rao",
+    stars: 5,
+    photo: "",
+    text: "Strategies are easy to follow and practical for daily trading.",
+    image: "img/charts/8.jpeg"
+  },
+  {
+    id: 21,
+    name: "Sanjay Khanna",
+    stars: 3,
+    photo: "https://randomuser.me/api/portraits/men/50.jpg",
+    text: "It helped me avoid emotional trades and focus on planned entries.",
+    image: "img/charts/9.jpeg"
+  },
+  {
+    id: 22,
+    name: "Kavita Mishra",
+    stars: 4,
+    photo: "https://randomuser.me/api/portraits/women/25.jpg",
+    text: "Good clarity in trade setups. I no longer feel lost while trading.",
+    image: "img/charts/10.jpeg"
+  },
+  {
+    id: 23,
+    name: "Ramesh Nair",
+    stars: 5,
+    photo: "https://randomuser.me/api/portraits/men/99.jpg",
+    text: "My trading has become more disciplined and structured than before.",
+    image: "img/charts/11.jpeg"
+  },
+  {
+    id: 24,
+    name: "Isha Jain",
+    stars: 4,
+    photo: "https://randomuser.me/api/portraits/women/99.jpg",
+    text: "Simple and logical approach. It feels sustainable for long term trading.",
+    image: "img/charts/12.jpeg"
+  },
+
+  /* ---- Letter Avatar Users (no photo) ---- */
+
+  { id: 25, name: "Harish Malhotra", stars: 4, photo: "", text: "I now follow defined rules instead of emotional decisions. That alone improved my trading.", image: "img/charts/1.jpeg" },
+  { id: 26, name: "Divya Arora", stars: 5, photo: "", text: "The strategies give me confidence because risk is always planned.", image: "img/charts/2.jpeg" },
+  { id: 27, name: "Tarun Bansal", stars: 3, photo: "", text: "My overtrading has reduced and my discipline has improved.", image: "img/charts/3.jpeg" },
+  { id: 28, name: "Kiran Joshi", stars: 4, photo: "", text: "Clear structure makes trading easier for me.", image: "img/charts/4.jpeg" },
+  { id: 29, name: "Ayesha Khan", stars: 5, photo: "", text: "I finally feel like I have a proper system to follow.", image: "img/charts/5.jpeg" },
+  { id: 30, name: "Rohini Patil", stars: 4, photo: "", text: "Good focus on risk management and patience.", image: "img/charts/6.jpeg" },
+  { id: 31, name: "Naveen Rao", stars: 3, photo: "", text: "My emotional trading has reduced significantly.", image: "img/charts/7.jpeg" },
+  { id: 32, name: "Swati Kulkarni", stars: 5, photo: "", text: "Feels like a professional trading framework.", image: "img/charts/8.jpeg" },
+  { id: 33, name: "Mohit Jain", stars: 4, photo: "", text: "Strategies are realistic and easy to follow.", image: "img/charts/9.jpeg" },
+  { id: 34, name: "Neeraj Gupta", stars: 3, photo: "", text: "Helped me control impulsive trades.", image: "img/charts/10.jpeg" },
+  { id: 35, name: "Pankaj Verma", stars: 4, photo: "", text: "My trading decisions are now more logical.", image: "img/charts/11.jpeg" },
+  { id: 36, name: "Sonal Mehta", stars: 5, photo: "", text: "The process feels more important than profits now.", image: "img/charts/12.jpeg" },
+  { id: 37, name: "Alok Mishra", stars: 4, photo: "", text: "Better control over risk and entries.", image: "img/charts/1.jpeg" },
+  { id: 38, name: "Kritika Sharma", stars: 5, photo: "", text: "I feel more confident trading with a plan.", image: "img/charts/2.jpeg" },
+  { id: 39, name: "Vinayak Deshpande", stars: 4, photo: "", text: "Trading is calmer and more planned now.", image: "img/charts/3.jpeg" },
+  { id: 40, name: "Ritu Malhotra", stars: 3, photo: "", text: "Helped me avoid unnecessary trades.", image: "img/charts/4.jpeg" },
+  { id: 41, name: "Ashok Nair", stars: 5, photo: "", text: "Feels like a disciplined system.", image: "img/charts/5.jpeg" },
+  { id: 42, name: "Preeti Joshi", stars: 4, photo: "", text: "Improved my patience and decision making.", image: "img/charts/6.jpeg" },
+  { id: 43, name: "Raghav Bhat", stars: 3, photo: "", text: "Now I avoid emotional entries.", image: "img/charts/7.jpeg" },
+  { id: 44, name: "Nisha Kulkarni", stars: 5, photo: "", text: "More systematic trading approach.", image: "img/charts/8.jpeg" },
+  { id: 45, name: "Ajay Srivastava", stars: 4, photo: "", text: "Good focus on structure and discipline.", image: "img/charts/9.jpeg" }
 ];
+
 
 export const ChartGallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 6;
+  const totalPages = Math.ceil(testimonials.length / itemsPerPage);
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentItems = testimonials.slice(startIndex, startIndex + itemsPerPage);
 
   return (
     <section className="oq-testimonials">
       <header className="oq-header">
         <span className="highlight">REAL USER EXPERIENCES</span>
         <h2>What Our Users Say</h2>
-        <p>Feedback shared by people using OptionQuant strategies</p>
+        <p>Feedback shared by people using OptionQuaant strategies</p>
       </header>
 
       <div className="oq-grid">
-        {testimonials.map((t) => (
+        {currentItems.map((t) => (
           <div key={t.id} className="oq-testimonial-card">
             <div className="oq-user">
-              <img src={t.photo} alt={t.name} className="oq-avatar" />
+              {t.photo ? (
+                <img src={t.photo} alt={t.name} className="oq-avatar-img" />
+              ) : (
+                <div className="oq-avatar-letter">{t.name.charAt(0)}</div>
+              )}
               <h4>{t.name}</h4>
-              
-            <div className="oq-stars">★★★★★</div>
+              <div className="oq-stars">
+                {"★".repeat(t.stars)}
+                {"☆".repeat(5 - t.stars)}
+              </div>
             </div>
-
 
             <p className="oq-text">“{t.text}”</p>
 
-            <span
-              className="view-link"
-              onClick={() => setSelectedImage(t.image)}
-            >
+            <span className="view-link" onClick={() => setSelectedImage(t.image)}>
               View trade result →
             </span>
           </div>
         ))}
+      </div>
+
+      <div className="oq-pagination">
+        <button onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))} disabled={currentPage === 1}>
+          ← Prev
+        </button>
+        <span>Page {currentPage} of {totalPages}</span>
+        <button onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))} disabled={currentPage === totalPages}>
+          Next →
+        </button>
       </div>
 
       {selectedImage && (

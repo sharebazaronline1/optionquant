@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube,FaTelegram } from "react-icons/fa";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -62,13 +62,14 @@ export const Contact = () => {
 
           <div className="contact-lines">
             <p>💬 <a href="https://wa.me/919511480021">Chat on WhatsApp</a></p>
-            <p>✉️ <a href="mailto:support@sharebazaaronline.in">support@sharebazaaronline.in</a></p>
+            <p>✉️ <a href="mailto:support@optionquaant.in">support@optionquaant.in</a></p>
           </div>
 
           <div className="socials">
             <a href="/" aria-label="Facebook"><FaFacebookF /></a>
             <a href="/" aria-label="Instagram"><FaInstagram /></a>
             <a href="/" aria-label="YouTube"><FaYoutube /></a>
+            <a href="/" aria-label="Telegram"><FaTelegram /></a>
           </div>
         </div>
 
@@ -117,19 +118,16 @@ export const Contact = () => {
             />
 
            <select
-  name="enquiry"
-  value={formData.enquiry}
-  onChange={handleChange}
-  required
->
-  <option value="">Select type</option>
-  <option value="Coupon Code">Coupon Code</option>
-  <option value="Payment">Payment</option>
-  <option value="Enquiry">Enquiry</option>
-</select>
-
-
-          
+              name="enquiry"
+              value={formData.enquiry}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select type</option>
+              <option value="Coupon Code">Coupon Code</option>
+              <option value="Payment">Payment</option>
+              <option value="Enquiry">Enquiry</option>
+            </select>
             <button type="submit" disabled={loading}>
               {loading ? "Submitting..." : "Request Callback"}
             </button>
