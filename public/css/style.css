@@ -2662,6 +2662,7 @@ ul li a:hover {
 .oq-testimonial-card {
   background: linear-gradient(180deg, #0f1626, #0b1120);
   border-radius: 22px;
+  position: relative;
   padding: 2.4rem 2rem;
   border: 1px solid rgba(255,255,255,0.04);
   box-shadow: 0 20px 60px rgba(0,0,0,0.55);
@@ -2676,7 +2677,7 @@ ul li a:hover {
 /* User */
 .oq-user {
   display: flex;
-  flex-direction: column;   /* ✅ stack avatar + name vertically */
+  flex-direction: column;   
   align-items: center;
   gap: 8px;
   text-align: center;
@@ -2763,17 +2764,32 @@ ul li a:hover {
   line-height: 1.7;
 }
 
-/* Link */
-.view-link {
-  margin-top: 1.8rem;
-  display: block;          /* change from inline-block */
-  text-align: right;      
+
+.oq-testimonial-card .view-link {
+  display: inline-block;
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+
   color: #facc15;
   font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
   transition: opacity 0.2s ease;
 }
+/* Link */
+.view-link {
+  margin-top: 1.8rem;
+  color: #facc15;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
 
+  margin-left: auto;   /* ✅ moves it to the right */
+  width: fit-content;  /* keeps it tight */
+}
 .view-link:hover {
   opacity: 0.7;
 }
@@ -2838,6 +2854,12 @@ ul li a:hover {
   max-width: 600px;
   margin-inline: auto;
   text-align: center;
+}
+.oq-review-block h2{
+font-size: clamp(2.8rem, 5vw, 3.4rem);
+  margin: 1rem 0;
+   font-size: 3.95rem;
+  font-weight: 700;
 }
 
 .review-form {
@@ -3439,4 +3461,196 @@ textarea {
     height: 48px;
     font-size: 1.4rem;
   }
+}
+/* ===== Profile Photo (DP) ===== */
+.oq-avatar-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffc107;
+  box-shadow: 0 0 12px rgba(255, 193, 7, 0.4);
+}
+
+/* ===== File Upload Inputs ===== */
+/* ===== Upload Rows Compact Layout ===== */
+.review-form label {
+  margin-top: 12px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+/* Wrap file input nicely */
+.review-form input[type="file"] {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px dashed #374151;
+  background: rgba(13, 18, 29, 0.7);
+  color: #94a3b8;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+/* Reduce vertical space */
+.review-form input[type="file"]::-webkit-file-upload-button {
+  background: #ffc107;
+  color: #000;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  margin-right: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.review-form input[type="file"]::file-selector-button {
+  background: #ffc107;
+  color: #000;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  margin-right: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+
+.review-form {
+  gap: 20px; /* was too large before */
+}
+
+/* ===== Screenshot Preview Link ===== */
+.view-link {
+  margin-top: 12px;
+  display: inline-block;
+  color: #ffc107;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.view-link:hover {
+  color: #ffdd55;
+  text-decoration: underline;
+}
+
+/* ===== Image Modal ===== */
+.image-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background: #0a0e15;
+  padding: 20px;
+  border-radius: 18px;
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 0 40px rgba(255, 193, 7, 0.3);
+  position: relative;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 75vh;
+  border-radius: 12px;
+  border: 2px solid #ffc107;
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  background: #ffc107;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 16px rgba(255,193,7,0.5);
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+/* ===== Clean horizontal upload alignment ===== */
+.review-form label {
+  display: inline-block;
+  width: 200px;              /* smaller label column */
+  white-space: nowrap;      /* stop word breaking */
+  margin: 0;
+}
+
+.review-form input[type="file"] {
+  display: inline-flex;
+  width: 320px;
+  height: 38px;
+  padding: 4px 10px;
+  margin-left: 16px;
+}
+
+/* Remove weird vertical gaps */
+.review-form {
+  gap: 14px;
+}
+
+/* Ensure upload rows align */
+.review-form label + input[type="file"] {
+  vertical-align: middle;
+}
+/* ===== Clean Upload Row Layout ===== */
+.upload-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.upload-row label {
+  width: 220px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.upload-row input[type="file"] {
+  flex: 1;
+  height: 40px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: 1px dashed #374151;
+  background: rgba(13, 18, 29, 0.7);
+  color: #94a3b8;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.upload-row input[type="file"]::file-selector-button {
+  background: #ffc107;
+  color: #000;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  margin-right: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.review-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-form button[type="submit"] {
+  align-self: flex-end;
 }

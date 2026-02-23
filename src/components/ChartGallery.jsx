@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { FaStar, FaCheckCircle } from "react-icons/fa";
 
 
-const testimonials = [
+const testimonialsData = [
   {
     id: 1,
     name: "Amit Verma",
@@ -239,45 +239,68 @@ export const ChartGallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
 
-const [reviews, setReviews] = useState(() => {
-  const saved = localStorage.getItem("reviews");
-  return saved ? JSON.parse(saved) : initialReviews;
-});  const [form, setForm] = useState({ name: "", text: "", rating: 0 });
+  const [testimonials, setTestimonials] = useState(() => {
+    const saved = localStorage.getItem("testimonials");
+    return saved ? JSON.parse(saved) : testimonialsData;
+  });
+
+  const [form, setForm] = useState({
+    name: "",
+    text: "",
+    rating: 0,
+    photo: "",
+    image: ""
+  });
+
   const [submitted, setSubmitted] = useState(false);
   const [hoveredRating, setHoveredRating] = useState(0);
-  const [reviewPage, setReviewPage] = useState(1);
 
   const itemsPerPage = 3;
   const totalPages = Math.ceil(testimonials.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentItems = testimonials.slice(startIndex, startIndex + itemsPerPage);
 
-  const totalReviewPages = Math.ceil(reviews.length / REVIEWS_PER_PAGE);
-  const startReviewIndex = (reviewPage - 1) * REVIEWS_PER_PAGE;
-  const paginatedReviews = reviews.slice(startReviewIndex, startReviewIndex + REVIEWS_PER_PAGE);
-
-const handleSubmit = (e) => {
-  e.preventDefault();
-  if (!form.text || form.rating === 0) return;
-
-  const newReview = {
-    id: Date.now(),
-    name: form.name || "Anonymous",
-    rating: form.rating,
-    date: new Date().toLocaleDateString(),
-    time: new Date().toLocaleTimeString(),
-    text: form.text,
+  const handlePhotoUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      setForm({ ...form, photo: reader.result });
+    };
+    reader.readAsDataURL(file);
   };
 
-  const updatedReviews = [newReview, ...reviews];
+  const handleResultUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      setForm({ ...form, image: reader.result });
+    };
+    reader.readAsDataURL(file);
+  };
 
-  setReviews(updatedReviews);
-  localStorage.setItem("reviews", JSON.stringify(updatedReviews));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!form.text || form.rating === 0) return;
 
-  setForm({ name: "", text: "", rating: 0 });
-  setSubmitted(true);
-  setTimeout(() => setSubmitted(false), 3000);
-};
+    const newTestimonial = {
+      id: Date.now(),
+      name: form.name || "Anonymous",
+      stars: form.rating,
+      photo: form.photo,
+      text: form.text,
+      image: form.image
+    };
+
+    const updated = [newTestimonial, ...testimonials];
+    setTestimonials(updated);
+    localStorage.setItem("testimonials", JSON.stringify(updated));
+
+    setForm({ name: "", text: "", rating: 0, photo: "", image: "" });
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 3000);
+  };
 
   return (
     <section className="oq-testimonials">
@@ -291,7 +314,11 @@ const handleSubmit = (e) => {
         {currentItems.map((t) => (
           <div key={t.id} className="oq-testimonial-card">
             <div className="oq-user">
-              {t.photo ? <img src={t.photo} alt={t.name} className="oq-avatar-img" /> : <div className="oq-avatar-letter">{t.name.charAt(0)}</div>}
+              {t.photo ? (
+                <img src={t.photo} alt={t.name} className="oq-avatar-img" />
+              ) : (
+                <div className="oq-avatar-letter">{t.name.charAt(0)}</div>
+              )}
               <h4>{t.name}</h4>
               <div className="oq-stars">
                 {"★".repeat(t.stars)}{"☆".repeat(5 - t.stars)}
@@ -299,7 +326,12 @@ const handleSubmit = (e) => {
             </div>
 
             <p className="oq-text">“{t.text}”</p>
-            <span className="view-link" onClick={() => setSelectedImage(t.image)}>View trade result →</span>
+
+            {t.image && (
+              <span className="view-link" onClick={() => setSelectedImage(t.image)}>
+                View trade result →
+              </span>
+            )}
           </div>
         ))}
       </div>
@@ -310,63 +342,54 @@ const handleSubmit = (e) => {
         <button disabled={currentPage === totalPages} onClick={() => setCurrentPage(p => p + 1)}>Next →</button>
       </div>
 
-      {/* ---------------- REVIEW SECTION ---------------- */}
+      {/* -------- REVIEW FORM -------- */}
       <div className="oq-review-block">
-        <h2>Community Reviews</h2>
-        <p>Share your experience and read what other traders say</p>
+        <h2>Share Your Experience</h2>
 
         {submitted && (
           <div className="review-success">
-            <FaCheckCircle /> Thank you! Your review has been submitted.
+            <FaCheckCircle /> Thank you! Your review has been added.
           </div>
         )}
 
         <form className="review-form" onSubmit={handleSubmit}>
           <div className="stars-input">
             {[1,2,3,4,5].map(star => (
-              <FaStar key={star}
+              <FaStar
+                key={star}
                 className={(hoveredRating || form.rating) >= star ? "filled" : ""}
                 onMouseEnter={() => setHoveredRating(star)}
                 onMouseLeave={() => setHoveredRating(0)}
-                onClick={() => setForm({...form, rating: star})}
+                onClick={() => setForm({ ...form, rating: star })}
               />
             ))}
           </div>
 
-          <input placeholder="Your name (optional)"
+          <input
+            placeholder="Your name (optional)"
             value={form.name}
-            onChange={e => setForm({...form, name: e.target.value})}
+            onChange={e => setForm({ ...form, name: e.target.value })}
           />
 
-          <textarea placeholder="Write your review..."
+          <textarea
+            placeholder="Write your review..."
             value={form.text}
-            onChange={e => setForm({...form, text: e.target.value})}
+            onChange={e => setForm({ ...form, text: e.target.value })}
           />
+
+          {/* Upload DP */}
+         <div className="upload-row">
+  <label>Upload Profile Photo</label>
+  <input type="file" accept="image/*" onChange={handlePhotoUpload} />
+</div>
+
+<div className="upload-row">
+  <label>Upload Trade Result </label>
+  <input type="file" accept="image/*" onChange={handleResultUpload} />
+</div>
 
           <button type="submit">Submit Review</button>
         </form>
-
-        <div className="review-list">
-          {paginatedReviews.map(r => (
-            <div key={r.id} className="review-card">
-              <div className="review-top">
-                <div className="avatar">{r.name.charAt(0)}</div>
-                <div>
-                  <h4>{r.name}</h4>
-                  <div className="oq-stars">{"★".repeat(r.rating)}{"☆".repeat(5-r.rating)}</div>
-                </div>
-                <span>{r.date}</span>
-              </div>
-              <p>{r.text}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="oq-pagination">
-          <button disabled={reviewPage === 1} onClick={() => setReviewPage(p=>p-1)}>← Prev</button>
-          <span>Page {reviewPage} of {totalReviewPages}</span>
-          <button disabled={reviewPage === totalReviewPages} onClick={() => setReviewPage(p=>p+1)}>Next →</button>
-        </div>
       </div>
 
       {selectedImage && (
