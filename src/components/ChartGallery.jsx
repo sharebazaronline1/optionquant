@@ -225,14 +225,6 @@ const testimonialsData = [
 ];
 
 
-/* ---------------- REVIEW DATA ---------------- */
-const initialReviews = [
-  { id: 1, name: "Rahul", rating: 5, date: "10 Feb 2026", time: "1:59 PM", text: "OptionQuaant delivers a smooth user experience and structured trading guidance. The signals are clear and the risk management approach is very helpful." },
-  { id: 2, name: "Amit", rating: 4, date: "12 Feb 2026", time: "11:45 AM", text: "The tools are useful, especially alerts and watchlist. Support is responsive and helpful." },
-  { id: 3, name: "Sneha", rating: 5, date: "14 Feb 2026", time: "6:20 PM", text: "I like the disciplined approach and structured setups. It feels professional and avoids unrealistic claims." }
-];
-
-const REVIEWS_PER_PAGE = 3;
 
 /* ---------------- COMPONENT ---------------- */
 export const ChartGallery = () => {
