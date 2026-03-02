@@ -51,7 +51,7 @@ export const Features = () => {
         {/* IMAGE */}
         <div className="features-image-wrapper">
           <img
-            src="img/features.png"
+            src="img/eg3.jpg"
             alt="Trading Features"
             className="features-image"
           />

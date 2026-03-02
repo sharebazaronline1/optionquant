@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaFacebookF, FaInstagram, FaYoutube,FaTelegram } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube,FaTelegram, FaWhatsapp } from "react-icons/fa";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -70,6 +70,7 @@ export const Contact = () => {
             <a href="/" aria-label="Instagram"><FaInstagram /></a>
             <a href="/" aria-label="YouTube"><FaYoutube /></a>
             <a href="/" aria-label="Telegram"><FaTelegram /></a>
+            <a href="/" aria-label="Telegram"><FaWhatsapp /></a>
           </div>
         </div>
 

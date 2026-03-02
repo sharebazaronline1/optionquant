@@ -816,7 +816,7 @@ ul li a:hover {
 
 /* ===== FEATURES SECTION ===== */
 .optionquant-features {
-  background: radial-gradient(circle at top, #0f1420 0%, #070a12 70%);
+  background: #0b0f14;
   padding: clamp(70px, 8vw, 120px) 0;
   color: #ffffff;
 }
@@ -866,8 +866,8 @@ ul li a:hover {
 }
 
 .features-image {
-  max-width: 100%;
-  width: 780px;
+  max-width: 80%;
+  width: 680px;
   border-radius: 18px;
   box-shadow: 0 0 50px rgba(0, 255, 255, 0.12);
 }

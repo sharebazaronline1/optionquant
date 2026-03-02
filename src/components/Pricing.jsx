@@ -17,24 +17,24 @@ const features = [
 const plans = [
   {
     name: "Starter",
-    priceMonthly: 4999,
-    priceAnnual: 35999,
-    discount: "40% off",
+    priceMonthly: 999,
+    priceAnnual: 8392,
+    discount: null,
     popular: false,
     included: [true, true, false, false, false, false, false],
   },
   {
     name: "Pro",
-    priceMonthly: 9999,
-    priceAnnual: 59999,
+    priceMonthly: 4999,
+    priceAnnual: 41992,
     discount: null,
     popular: true,
     included: [true, true, true, true, false, false, false],
   },
   {
     name: "Elite",
-    priceMonthly: 19999,
-    priceAnnual: 143999,
+    priceMonthly: 9999,
+    priceAnnual: 83992,
     discount: null,
     popular: false,
     included: [true, true, true, true, true, true, true],
@@ -79,7 +79,7 @@ export const Pricing = () => {
   >
     Annually
     <span className={`save-badge ${isAnnual ? "active-save" : ""}`}>
-      Save up to 40%
+      Save up to 30%
     </span>
   </button>
 </div>
