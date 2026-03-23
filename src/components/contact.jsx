@@ -76,8 +76,9 @@ export const Contact = () => {
 
         {/* LINKS */}
         <div className="oq-col">
-          <h4>Links</h4>
           <ul>
+          <li><a href="/">About Us</a></li>
+          
             <li><a href="/gallery">Gallery</a></li>
             <li><a href="/pricing">Pricing</a></li>
             <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
