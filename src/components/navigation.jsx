@@ -33,6 +33,7 @@ export const Navigation = () => {
           id="bs-example-navbar-collapse-1"
         >
           <ul className="nav navbar-nav navbar-right">
+             <li><a href="/" className="page-scroll">About Us</a></li>
             <li><a href="/gallery" className="page-scroll">Gallery</a></li>
             <li><a href="/pricing" className="page-scroll">Pricing</a></li>
             <li><a href="#contact" className="page-scroll">Contact</a></li>

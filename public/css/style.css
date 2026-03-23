@@ -2286,16 +2286,71 @@ ul li a:hover {
   gap: 12px;
 }
 
+/* Coupon field – input + button in one clean row */
+.coupon-field {
+  margin-bottom: 1.5rem;
+}
+
+.coupon-row {
+  display: flex;
+  align-items: center;          /* vertically center input & button */
+  gap: 10px;                    /* space between input and button */
+}
+
+.coupon-row input {
+  flex: 1;                      /* input takes remaining space */
+  min-width: 0;                 /* prevents overflow in small screens */
+  padding: 12px 14px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.coupon-row input:focus {
+  border-color: #ffc107;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.12);
+}
+
+/* Apply button – smaller, more compact, modern look */
 .btn-apply {
   background: #ffc107;
   color: #000;
   border: none;
-  padding: 14px 24px;
+  padding: 0 20px;              /* reduced padding → smaller button */
+  height: 44px;                 /* fixed height matches input better */
   border-radius: 8px;
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 15px;
   cursor: pointer;
-  transition: all 0.3s;
   white-space: nowrap;
+  transition: all 0.25s ease;
+  flex-shrink: 0;               /* button doesn't shrink */
+  min-width: 90px;              /* prevents becoming too narrow */
+}
+
+.btn-apply:hover:not(:disabled) {
+  background: #ffca28;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.25);
+}
+
+.btn-apply:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Success message below the row */
+.coupon-success {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #34d399;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .btn-apply:hover {
@@ -2357,39 +2412,59 @@ ul li a:hover {
   color: #ffffff;
   font-weight: 600;
 }
+/* Terms & Conditions – clean checkbox + text alignment */
 .terms-box {
-  margin-top: 10px;
+  margin-top: 1.5rem;           /* space above the whole terms area */
+  padding: 0.5rem 0;
 }
 
 .terms-label {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-left:4px;
-  font-size: 1rem;          /* smaller text */
-  line-height: 1.4;
-  color: #cbd5e1;             /* soft readable gray */
+  align-items: flex-start;      /* top-align if text wraps */
+  gap: 0.75rem;                 /* distance between checkbox and text */
+  font-size: 0.95rem;           /* readable but not too big */
+  line-height: 1.5;
+  color: #d1d5db;               /* soft light gray */
+  cursor: pointer;
+  user-select: none;            /* prevent text selection when clicking */
 }
 
-.terms-label input {
+.terms-label input[type="checkbox"] {
+  margin-top: 0.25rem;          /* slight top offset so it aligns with first line */
+  width: 1.125rem;
+  height: 1.125rem;
+  accent-color: #fbbf24;        /* gold checkmark when checked */
+  flex-shrink: 0;               /* checkbox never shrinks */
+  cursor: pointer;
+  border-radius: 4px;
+  border: 2px solid #4b5563;    /* visible border when unchecked */
+  background-color: #111827;    /* dark background */
+}
 
-  margin-top: 3px;            
-  transform: scale(0.9);      /* slightly smaller checkbox */
+.terms-label input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2);
 }
 
 .terms-label span {
-  display: inline;
-  font-weight: 300;
+  flex: 1;
 }
 
 .terms-label a {
-  color: #facc15;             /* gold links */
-  text-decoration: none;
-  font-weight: 300;
+  color: #60a5fa;               /* blue links – standard */
+  text-decoration: underline;
+  font-weight: 500;
 }
 
 .terms-label a:hover {
+  color: #93c5fd;
   text-decoration: underline;
+}
+
+/* When checkbox is checked – optional visual feedback */
+.terms-label input[type="checkbox"]:checked {
+  background-color: #fbbf24;
+  border-color: #fbbf24;
 }
 
 .terms-warning {
@@ -2512,6 +2587,16 @@ ul li a:hover {
   font-size: 14px;
   color: #94a3b8;
 }
+.secure-badges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;               /* space between items */
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
 
 .badge-icon {
   color: #34d399;
@@ -2600,7 +2685,178 @@ ul li a:hover {
     height: 40px;
   }
 }
+.qr-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(8px);
+}
 
+.qr-modal {
+  background: #0f172a;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 460px;
+  padding: 2.5rem 1.8rem;
+  position: relative;
+  border: 1px solid #1e293b;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+  color: #e2e8f0;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: white;
+  font-size: 1.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.modal-close-btn:hover {
+  background: #ef4444;
+  transform: rotate(90deg);
+}
+
+.qr-modal h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.75rem;
+  text-align: center;
+  color: #f1f5f9;
+}
+
+.qr-amount {
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.75rem;
+  color: #fbbf24;
+}
+
+.qr-code-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.qr-image {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  background: white;
+  padding: 10px;
+  margin: 0 auto;
+  display: block;
+}
+
+.qr-instruction {
+  margin-top: 1rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.qr-form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.qr-form label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.qr-form input {
+  padding: 0.9rem 1.1rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 1rem;
+}
+
+.btn-submit-qr {
+  width: 100%;
+  background: #10b981;
+  color: white;
+  padding: 0.95rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-submit-qr:hover:not(:disabled) {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+.btn-submit-qr:disabled {
+  background: #4b5563;
+  cursor: not-allowed;
+}
+
+.qr-footer {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  margin-top: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Success message inside modal */
+.qr-success-message {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.success-icon {
+  color: #10b981;
+  margin-bottom: 1.25rem;
+}
+
+.qr-success-message h4 {
+  font-size: 1.4rem;
+  margin: 0.5rem 0 1rem;
+  color: #f1f5f9;
+}
+
+.auto-close-note {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-top: 1.25rem;
+}
+
+/* Form grid (unchanged – just for reference) */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+@media (max-width: 992px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
 
 .oq-testimonials {
   background: radial-gradient(circle at top, #0d1220, #070b13);
@@ -3653,4 +3909,179 @@ textarea {
 
 .review-form button[type="submit"] {
   align-self: flex-end;
+}
+/* ────────────────────────────────────────────────
+   QR Modal – Clean, modern, mobile-friendly
+───────────────────────────────────────────────── */
+.qr-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(8px);
+}
+
+.qr-modal {
+  background: #0f172a;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 460px;
+  padding: 2.5rem 1.8rem;
+  position: relative;
+  border: 1px solid #1e293b;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+  color: #e2e8f0;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: white;
+  font-size: 1.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.modal-close-btn:hover {
+  background: #ef4444;
+  transform: rotate(90deg);
+}
+
+.qr-modal h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.75rem;
+  text-align: center;
+  color: #f1f5f9;
+}
+
+.qr-amount {
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.75rem;
+  color: #fbbf24;
+}
+
+.qr-code-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.qr-image {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  background: white;
+  padding: 10px;
+  margin: 0 auto;
+  display: block;
+}
+
+.qr-instruction {
+  margin-top: 1rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.qr-form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.qr-form label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.qr-form input {
+  padding: 0.9rem 1.1rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 1rem;
+}
+
+.btn-submit-qr {
+  width: 100%;
+  background: #10b981;
+  color: white;
+  padding: 0.95rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-submit-qr:hover:not(:disabled) {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+.btn-submit-qr:disabled {
+  background: #4b5563;
+  cursor: not-allowed;
+}
+
+.qr-footer {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  margin-top: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Success message inside modal */
+.qr-success-message {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.success-icon {
+  color: #10b981;
+  margin-bottom: 1.25rem;
+}
+
+.qr-success-message h4 {
+  font-size: 1.4rem;
+  margin: 0.5rem 0 1rem;
+  color: #f1f5f9;
+}
+
+.auto-close-note {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-top: 1.25rem;
+}
+
+/* Form grid (unchanged – just for reference) */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+@media (max-width: 992px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
 }
