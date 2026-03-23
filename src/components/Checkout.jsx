@@ -62,6 +62,9 @@ export const CheckOut = () => {
     data.append("entry.2003893814", finalTotal.toString());
     data.append("entry.788215457", formData.coupon || "NA");
 
+    
+    data.append("entry.1063982144", transactionId || "NA");
+
     try {
       await fetch(formUrl, {
         method: "POST",
@@ -143,7 +146,6 @@ export const CheckOut = () => {
           <p>Complete your purchase safely in just a few steps</p>
         </header>
 
-    
         {submitStatus === "error" && (
           <div className="status-message error">
             <FaTimesCircle /> Something went wrong. Please try again.
@@ -195,36 +197,32 @@ export const CheckOut = () => {
                 />
               </div>
 
-             <div className="form-field coupon-field">
-  <label htmlFor="coupon">Coupon Code (optional)</label>
-  <div className="coupon-row">
-    <input
-      id="coupon"
-      type="text"
-      name="coupon"
-      value={formData.coupon}
-      onChange={handleChange}
-      placeholder="Enter code"
-    />
-    <button
-      type="button"
-      className="btn-apply"
-      onClick={applyCoupon}
-      disabled={isLoading || couponApplied}
-    >
-      {isLoading ? (
-        <FaSpinner className="spin" />
-      ) : (
-        "Apply"
-      )}
-    </button>
-  </div>
-  {couponApplied && (
-    <p className="coupon-success">
-      <FaCheckCircle /> Coupon applied
-    </p>
-  )}
-</div>
+              <div className="form-field coupon-field">
+                <label htmlFor="coupon">Coupon Code (optional)</label>
+                <div className="coupon-row">
+                  <input
+                    id="coupon"
+                    type="text"
+                    name="coupon"
+                    value={formData.coupon}
+                    onChange={handleChange}
+                    placeholder="Enter code"
+                  />
+                  <button
+                    type="button"
+                    className="btn-apply"
+                    onClick={applyCoupon}
+                    disabled={isLoading || couponApplied}
+                  >
+                    {isLoading ? <FaSpinner className="spin" /> : "Apply"}
+                  </button>
+                </div>
+                {couponApplied && (
+                  <p className="coupon-success">
+                    <FaCheckCircle /> Coupon applied
+                  </p>
+                )}
+              </div>
 
               <div className="terms-box">
                 <label className="terms-label">
@@ -256,65 +254,60 @@ export const CheckOut = () => {
               </div>
             </div>
 
-            
+            <div className="order-summary">
+              <h2>Order Summary</h2>
 
-             <div className="order-summary">
-  <h2>Order Summary</h2>
+              <div className="summary-item">
+                <span>{selectedPlan.name}</span>
+                <span>₹{basePrice.toLocaleString()}</span>
+              </div>
 
-  <div className="summary-item">
-    <span>{selectedPlan.name}</span>
-    <span>₹{basePrice.toLocaleString()}</span>
-  </div>
+              {discount > 0 && (
+                <div className="summary-item discount">
+                  <span>Discount ({discount}%)</span>
+                  <span>-₹{discountAmount.toLocaleString()}</span>
+                </div>
+              )}
 
-  {discount > 0 && (
-    <div className="summary-item discount">
-      <span>Discount ({discount}%)</span>
-      <span>-₹{discountAmount.toLocaleString()}</span>
-    </div>
-  )}
+              <div className="summary-item">
+                <span>GST (18%)</span>
+                <span>₹{Math.round(gstAmount).toLocaleString()}</span>
+              </div>
 
-  <div className="summary-item">
-    <span>GST (18%)</span>
-    <span>₹{Math.round(gstAmount).toLocaleString()}</span>
-  </div>
+              <div className="summary-divider" />
 
-  <div className="summary-divider" />
+              <div className="summary-total">
+                <span>Total (incl. GST)</span>
+                <span className="total-value">₹{finalTotal.toLocaleString()}</span>
+              </div>
 
-  <div className="summary-total">
-    <span>Total (incl. GST)</span>
-    <span className="total-value">₹{finalTotal.toLocaleString()}</span>
-  </div>
+              <button
+                type="submit"
+                className="btn-pay"
+                disabled={isLoading || !termsAccepted}
+              >
+                {isLoading ? (
+                  <>
+                    <FaSpinner className="spin" /> Processing...
+                  </>
+                ) : (
+                  <>
+                    <FaLock /> Pay Securely
+                  </>
+                )}
+              </button>
 
-  {/* ────────────────────────────────
-       MOVED DOWN – button + warning + badges
-  ──────────────────────────────── */}
-  <button
-    type="submit"
-    className="btn-pay"
-    disabled={isLoading || !termsAccepted}
-  >
-    {isLoading ? (
-      <>
-        <FaSpinner className="spin" /> Processing...
-      </>
-    ) : (
-      <>
-        <FaLock /> Pay Securely
-      </>
-    )}
-  </button>
+              {!termsAccepted && (
+                <p className="terms-warning">
+                  Please accept the Terms & Conditions to proceed
+                </p>
+              )}
 
-  {!termsAccepted && (
-    <p className="terms-warning">
-      Please accept the Terms & Conditions to proceed
-    </p>
-  )}
-
-  <div className="secure-badges">
-    <div><FaShieldAlt /> 100% Secure</div>
-    <div><FaLock /> Encrypted</div>
-  </div>
-</div>
+              <div className="secure-badges">
+                <div><FaShieldAlt /> 100% Secure</div>
+                <div><FaLock /> Encrypted</div>
+              </div>
+            </div>
           </div>
         </form>
 
@@ -334,7 +327,6 @@ export const CheckOut = () => {
         </div>
       </div>
 
-     
       {showQRPopup && (
         <div className="qr-modal-overlay" onClick={() => setShowQRPopup(false)}>
           <div className="qr-modal" onClick={(e) => e.stopPropagation()}>
