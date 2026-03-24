@@ -2291,21 +2291,22 @@ ul li a:hover {
   margin-bottom: 1.5rem;
 }
 
+/* Coupon Row */
 .coupon-row {
   display: flex;
-  align-items: center;          /* vertically center input & button */
-  gap: 10px;                    /* space between input and button */
+  align-items: center;
+  gap: 12px;
 }
 
 .coupon-row input {
-  flex: 1;                      /* input takes remaining space */
-  min-width: 0;                 /* prevents overflow in small screens */
-  padding: 12px 14px;
-  font-size: 15px;
+  flex: 1;
+  min-width: 0;
+  padding: 14px 16px;
   border-radius: 8px;
   border: 1px solid #334155;
   background: #0f172a;
   color: #e2e8f0;
+  font-size: 15px;
 }
 
 .coupon-row input:focus {
@@ -2314,21 +2315,73 @@ ul li a:hover {
   box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.12);
 }
 
-/* Apply button – smaller, more compact, modern look */
+/* Apply Button */
 .btn-apply {
   background: #ffc107;
   color: #000;
   border: none;
-  padding: 0 20px;              /* reduced padding → smaller button */
-  height: 44px;                 /* fixed height matches input better */
+  padding: 0 24px;
+  height: 48px;
   border-radius: 8px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 15px;
   cursor: pointer;
   white-space: nowrap;
-  transition: all 0.25s ease;
-  flex-shrink: 0;               /* button doesn't shrink */
-  min-width: 90px;              /* prevents becoming too narrow */
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  min-width: 88px;
+  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.25);
+}
+
+.btn-apply:hover:not(:disabled) {
+  background: #ffca28;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 193, 7, 0.35);
+}
+
+.btn-apply:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .btn-apply {
+    height: 46px;
+    font-size: 14.5px;
+    padding: 0 20px;
+    min-width: 82px;
+  }
+
+  .coupon-row {
+    gap: 10px;
+  }
+
+  .coupon-row input {
+    padding: 13px 14px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-apply {
+    height: 44px;
+    padding: 0 18px;
+    font-size: 14px;
+    min-width: 76px;
+  }
+
+  /* Optional: Stack vertically on very small screens */
+  .coupon-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .btn-apply {
+    width: 100%;
+    min-width: unset;
+  }
 }
 
 .btn-apply:hover:not(:disabled) {
@@ -2358,6 +2411,7 @@ ul li a:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(255, 193, 7, 0.3);
 }
+
 
 .btn-apply:disabled {
   opacity: 0.6;
@@ -4083,5 +4137,82 @@ textarea {
   .form-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+}
+/* ===== TRIAL BANNER ===== */
+.trial-banner {
+  background: linear-gradient(135deg, #10141e, #1a1f2e);
+  border: 1px solid #ffc107;
+  border-radius: 16px;
+  padding: 24px 32px;
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  box-shadow: 0 8px 32px rgba(255, 193, 7, 0.15);
+}
+
+.trial-content h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.trial-content p {
+  color: #94a3b8;
+  margin: 0;
+}
+
+.trial-badge {
+  background: #ffc107;
+  color: #000;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.trial-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffc107;
+}
+
+.btn-trial {
+  background: linear-gradient(90deg, #ffc107, #ffca28);
+  color: #000;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.55rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-trial:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(255, 193, 7, 0.45);
+}
+
+/* Existing pricing styles remain the same... */
+
+/* Responsive for trial banner */
+@media (max-width: 768px) {
+  .trial-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .trial-action {
+    width: 100%;
+    text-align: center;
   }
 }

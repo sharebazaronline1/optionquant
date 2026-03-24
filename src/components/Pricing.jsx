@@ -9,9 +9,7 @@ const features = [
   "Alerts",
   "Trade Strategy",
   "Breakouts",
-   "S/R Levels",
-  
-  
+  "S/R Levels",
 ];
 
 const plans = [
@@ -57,33 +55,62 @@ export const Pricing = () => {
     });
   };
 
+  const handleTrial = () => {
+    navigate("/checkout", {
+      state: {
+        selectedPlan: {
+          name: "2-Day Trial Pack",
+          price: 99,
+          isAnnual: false,
+        },
+      },
+    });
+  };
+
   return (
     <section className="pricing-section">
       <div className="container">
         <header className="section-header">
           <h2>Choose Your Plan</h2>
-          <p>Powerful Trade identification tools for every trader</p>
+          <p>Powerful trade identification tools for every trader</p>
           <div className="gold-underline"></div>
         </header>
 
-        <div className="billing-toggle">
-  <button
-    className={!isAnnual ? "active" : ""}
-    onClick={() => setIsAnnual(false)}
-  >
-    Monthly
-  </button>
-  <button
-    className={isAnnual ? "active" : ""}
-    onClick={() => setIsAnnual(true)}
-  >
-    Annually
-    <span className={`save-badge ${isAnnual ? "active-save" : ""}`}>
-      Save up to 30%
-    </span>
-  </button>
-</div>
+        {/* 2-Day Trial Banner – Premium Look */}
+        <div className="trial-banner">
+          <div className="trial-content">
+            <div className="trial-badge">Limited Time Offer</div>
+            <h3>2-Day Trial Pack</h3>
+            <p>Test all core features risk-free before committing</p>
+            <div className="trial-price">
+              Only <strong>₹99</strong> for 2 days
+            </div>
+          </div>
+          <button className="btn-trial" onClick={handleTrial}>
+            Get Started
+          </button>
+        </div>
 
+        {/* Billing Toggle */}
+        <div className="billing-toggle">
+          <button
+            className={!isAnnual ? "active" : ""}
+            onClick={() => setIsAnnual(false)}
+          >
+            Monthly
+          </button>
+          <button
+            className={isAnnual ? "active" : ""}
+            onClick={() => setIsAnnual(true)}
+          >
+            Annually
+            <span className={`save-badge ${isAnnual ? "active-save" : ""}`}>
+              Save up to 30%
+            </span>
+          </button>
+        </div>
+
+        {/* Pricing Cards */}
         <div className="pricing-grid">
           {plans.map((plan) => {
             const price = isAnnual ? plan.priceAnnual : plan.priceMonthly;
@@ -103,17 +130,11 @@ export const Pricing = () => {
                   <span className="period">/{isAnnual ? "year" : "month"}</span>
                 </div>
 
-                {isAnnual && plan.discount && (
-                  <div className="savings">{plan.discount}</div>
-                )}
-
                 <ul className="feature-list">
                   {features.map((feature, idx) => (
                     <li
                       key={idx}
-                      className={
-                        plan.included[idx] ? "included" : "excluded"
-                      }
+                      className={plan.included[idx] ? "included" : "excluded"}
                     >
                       {plan.included[idx] ? <FaCheck /> : <FaTimes />}
                       <span>{feature}</span>
@@ -123,18 +144,15 @@ export const Pricing = () => {
 
                 <ul className="support-list">
                   <li className="support-title">Support</li>
-                  
-                   <li>
-                    {plan.name === "Elite" ? <FaCheck className="check" /> : <FaTimes className="cross" />} Call 
+                  <li>
+                    {plan.name === "Elite" ? <FaCheck className="check" /> : <FaTimes className="cross" />} Call
                   </li>
-                   <li>
+                  <li>
                     <FaCheck className="check" /> Email
                   </li>
                   <li>
                     {plan.name !== "Starter" ? <FaCheck className="check" /> : <FaTimes className="cross" />} WhatsApp
                   </li>
-                 
-                 
                 </ul>
 
                 <button
@@ -152,10 +170,13 @@ export const Pricing = () => {
           <p>
             Note: For instant order placement and precise trade execution, a Fyers trading account is required.
           </p>
-          <a href="https://signup.fyers.in/?utm-source=AP-Leads&utm-medium=AP3297" className="fyers-link"
-  target="_blank"
-  rel="noopener noreferrer">
-            Open Fyers Account → 
+          <a
+            href="https://signup.fyers.in/?utm-source=AP-Leads&utm-medium=AP3297"
+            className="fyers-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open Fyers Account →
           </a>
           <p>Open a Fyers account and request a callback to get 10% extra off.</p>
         </div>
