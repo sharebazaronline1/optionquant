@@ -30,7 +30,6 @@ export const CheckOut = () => {
   const [paymentSubmitted, setPaymentSubmitted] = useState(false);
   const [transactionId, setTransactionId] = useState("");
   const [tradeviewUserid, setTradeviewUserId] = useState("");
-  const [submitStatus, setSubmitStatus] = useState("idle");
   const [orderId] = useState(() =>
     `ORD-${Date.now()}-${Math.floor(Math.random() * 1000)}`
   );
@@ -179,11 +178,7 @@ const upiString = `upi://pay?pa=karunya.tm3-3@okicici&pn=OptionQuant&tn=${orderI
           <p>Complete your purchase safely in just a few steps</p>
         </header>
 
-        {submitStatus === "error" && (
-          <div className="status-message error">
-            <FaTimesCircle /> Something went wrong. Please try again.
-          </div>
-        )}
+       
 
         <form onSubmit={handlePayClick} className="checkout-form">
           <div className="form-grid">
