@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { FaLock, FaCheckCircle, FaShieldAlt, FaSpinner, FaTimesCircle } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
+import QRCode from "qrcode";
 
 export const CheckOut = () => {
   const location = useLocation();
@@ -9,6 +10,9 @@ export const CheckOut = () => {
     price: 14999,
     isAnnual: false,
   };
+
+
+  const API_URL = "https://script.google.com/macros/s/AKfycbxWv1RRuIkF8bQjv99PDAyW-jqocuAQo9zF1It791WUNGn74sjveaRoRPnkU3cl-8yQ/exec";
 
   const [formData, setFormData] = useState({
     name: "",
@@ -20,11 +24,16 @@ export const CheckOut = () => {
   const [couponApplied, setCouponApplied] = useState(false);
   const [discount, setDiscount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+    const [qrDataURL, setQrDataURL] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [showQRPopup, setShowQRPopup] = useState(false);
   const [paymentSubmitted, setPaymentSubmitted] = useState(false);
   const [transactionId, setTransactionId] = useState("");
+  const [tradeviewUserid, setTradeviewUserId] = useState("");
   const [submitStatus, setSubmitStatus] = useState("idle");
+  const [orderId] = useState(() =>
+    `ORD-${Date.now()}-${Math.floor(Math.random() * 1000)}`
+  );
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,42 +56,9 @@ export const CheckOut = () => {
     }, 800);
   };
 
-  const submitToGoogleForm = async () => {
-    setIsLoading(true);
-    setSubmitStatus("idle");
 
-    const formUrl =
-      "https://docs.google.com/forms/u/0/d/e/1FAIpQLScXI747zL01wY4uGyPe7xlP_gc5tPJlpdubN0MXkiFPpuvymA/formResponse";
 
-    const data = new URLSearchParams();
-    data.append("entry.364341473", formData.name || "Anonymous");
-    data.append("entry.1529092994", formData.email || "");
-    data.append("entry.699565286", formData.phone || "");
-    data.append("entry.1937939122", selectedPlan.name);
-    data.append("entry.2003893814", finalTotal.toString());
-    data.append("entry.788215457", formData.coupon || "NA");
-
-    
-    data.append("entry.1063982144", transactionId || "NA");
-
-    try {
-      await fetch(formUrl, {
-        method: "POST",
-        mode: "no-cors",
-        body: data,
-      });
-      setSubmitStatus("success");
-      return true;
-    } catch (err) {
-      console.error("Google Form submission failed:", err);
-      setSubmitStatus("error");
-      return false;
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handlePayClick = (e) => {
+  const handlePayClick = async (e) => {
     e.preventDefault();
 
     if (!termsAccepted) {
@@ -90,33 +66,69 @@ export const CheckOut = () => {
       return;
     }
 
-    setShowQRPopup(true);
-    setPaymentSubmitted(false);
+    setIsLoading(true);
+
+    try {
+      await fetch(API_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain",
+        },
+        body: JSON.stringify({
+          action: "create",
+          orderId,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          plan: selectedPlan.name,
+          amount: finalTotal,
+          coupon: formData.coupon,
+        }),
+      });
+
+      setShowQRPopup(true);
+      setPaymentSubmitted(false);
+    } catch (err) {
+      alert("Failed to initiate order");
+    }
+
+    setIsLoading(false);
   };
 
   const handleQRSubmit = async (e) => {
     e.preventDefault();
 
-    if (!transactionId.trim()) {
-      alert("Please enter Transaction ID / UTR");
+    if (!transactionId.trim() || !tradeviewUserid.trim()) {
+      alert("Please enter both Transaction ID / UTR and Tradeview UserID");
       return;
     }
 
-    const success = await submitToGoogleForm();
+    setIsLoading(true);
 
-    if (success) {
+    try {
+      await fetch(API_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({
+          action: "update",
+          orderId,
+          transactionId,
+          tradeviewUserid,
+        }),
+      });
+
       setPaymentSubmitted(true);
+
       setTimeout(() => {
         setShowQRPopup(false);
-        setFormData({ name: "", email: "", phone: "", coupon: "" });
-        setCouponApplied(false);
-        setDiscount(0);
-        setTermsAccepted(false);
-        setTransactionId("");
       }, 5000);
-    } else {
-      alert("Failed to record your order. Please try again or contact support.");
+    } catch (err) {
+      alert("Failed to submit payment details. Please try again.");
     }
+
+    setIsLoading(false);
   };
 
   // Calculations
@@ -125,6 +137,27 @@ export const CheckOut = () => {
   const priceAfterDiscount = basePrice - discountAmount;
   const gstAmount = priceAfterDiscount * 0.18;
   const finalTotal = Math.round(priceAfterDiscount + gstAmount);
+const upiString = `upi://pay?pa=karunya.tm3-3@okicici&pn=OptionQuant&tn=${orderId}&am=${finalTotal}&cu=INR`;
+ useEffect(() => {
+    const generateQR = async () => {
+      try {
+        const url = await QRCode.toDataURL(upiString, {
+          width: 200,        // 300px size
+          margin: 2,         // small white border
+          color: {
+            dark: "#000000", // black QR code
+            light: "#FFFFFF" // white background
+          },
+          errorCorrectionLevel: "H" // high for easier scanning
+        });
+        setQrDataURL(url);
+      } catch (err) {
+        console.error("QR generation failed", err);
+      }
+    };
+    generateQR();
+  }, [upiString]);
+ 
 
   return (
     <section className="checkout-section">
@@ -350,11 +383,13 @@ export const CheckOut = () => {
                 </div>
 
                 <div className="qr-code-container">
-                  <img
-                    src="img/qr1.jpeg"
-                    alt="UPI QR Code"
-                    className="qr-image"
-                  />
+                {qrDataURL ? (
+        <img src={qrDataURL} alt="UPI QR Code" style={{ width: 300, height: 300 }} />
+      ) : (
+        <p>Generating QR...</p>
+      )}
+
+
                   <p className="qr-instruction">Scan & Pay via any UPI app</p>
                 </div>
 
@@ -366,6 +401,15 @@ export const CheckOut = () => {
                     placeholder="Enter your Transaction ID / UTR"
                     value={transactionId}
                     onChange={(e) => setTransactionId(e.target.value.trim())}
+                    required
+                  />
+                  <label htmlFor="tradeviewUser-id">Tradeview UserID</label>
+                  <input
+                    id="tradeviewUser-id"
+                    type="text"
+                    placeholder="Enter your Tradeview UserID"
+                    value={tradeviewUserid}
+                    onChange={(e) => setTradeviewUserId(e.target.value.trim())}
                     required
                   />
 
