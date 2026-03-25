@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import { FaLock, FaCheckCircle, FaShieldAlt, FaSpinner, FaTimesCircle } from "react-icons/fa";
+import { FaLock, FaCheckCircle, FaShieldAlt, FaSpinner } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import QRCode from "qrcode";
 
