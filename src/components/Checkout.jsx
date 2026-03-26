@@ -64,45 +64,67 @@ useEffect(() => {
   }
 }, [showQRPopup]);
 
-  const handlePayClick = async (e) => {
-    e.preventDefault();
+ const handlePayClick = async (e) => {
+  e.preventDefault();
 
-    if (!termsAccepted) {
-      alert("Please accept the Terms & Conditions before proceeding.");
-      return;
-    }
+  if (!termsAccepted) {
+    alert("Please accept the Terms & Conditions before proceeding.");
+    return;
+  }
 
-    setIsLoading(true);
+  if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
+    alert("Please fill in Name, Email and Phone Number");
+    return;
+  }
 
-    try {
-      await fetch(API_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "text/plain",
-        },
-        body: JSON.stringify({
-          action: "create",
-          orderId,
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          plan: selectedPlan.name,
-          amount: finalTotal,
-          coupon: formData.coupon,
-        }),
-      });
+  setIsLoading(true);
 
-      setShowQRPopup(true);
-      setPaymentSubmitted(false);
-    } catch (err) {
-      alert("Failed to initiate order");
-    }
+  try {
+    // Using no-cors for create (most reliable with Google Apps Script)
+    await fetch(API_URL, {
+      method: "POST",
+      mode: "no-cors",                    // ← Important
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+      body: JSON.stringify({
+        action: "create",
+        orderId,
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        plan: selectedPlan.name,
+        amount: finalTotal,
+        coupon: formData.coupon.trim() || "",
+      }),
+    });
 
-    setIsLoading(false);
-  };
+    // Since we can't read the response with no-cors, we assume success
+    console.log("✅ Order created (no-cors mode):", orderId);
 
-  const handleQRSubmit = async (e) => {
+    // Clear main form
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      coupon: "",
+    });
+    setCouponApplied(false);
+    setDiscount(0);
+
+    // Show QR popup
+    setShowQRPopup(true);
+    setPaymentSubmitted(false);
+
+  } catch (err) {
+    console.error("Order creation failed:", err);
+    alert("Failed to create order. Please check your internet and try again.");
+  }
+
+  setIsLoading(false);
+};
+
+ const handleQRSubmit = async (e) => {
   e.preventDefault();
 
   if (!transactionId.trim() || !tradeviewUserid.trim()) {
@@ -115,27 +137,24 @@ useEffect(() => {
   try {
     await fetch(API_URL, {
       method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain" },
+      mode: "no-cors",                    // ← Add this
+      headers: { 
+        "Content-Type": "text/plain;charset=utf-8" 
+      },
       body: JSON.stringify({
         action: "update",
         orderId,
-        transactionId,
-        tradeviewUserid,
+        transactionId: transactionId.trim(),
+        tradeviewUserid: tradeviewUserid.trim(),
       }),
     });
 
-   
     setTransactionId("");
     setTradeviewUserId("");
-
-    // Show success message
     setPaymentSubmitted(true);
 
-    // Auto close modal after 5 seconds and reset everything
     setTimeout(() => {
       setShowQRPopup(false);
-      
     }, 5000);
 
   } catch (err) {
