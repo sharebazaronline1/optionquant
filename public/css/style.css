@@ -2755,34 +2755,44 @@ ul li a:hover {
   border-radius: 16px;
   width: 90%;
   max-width: 460px;
-  padding: 2.5rem 1.8rem;
+  padding: 1.75rem 1.8rem;        /* Reduced vertical padding */
   position: relative;
   border: 1px solid #1e293b;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
   color: #e2e8f0;
+  max-height: 92vh;               
+  overflow-y: auto;               
 }
 
 .modal-close-btn {
   position: absolute;
-  top: 1rem;
+  top: 1.25rem;
   right: 1.25rem;
-  background: rgba(255, 255, 255, 0.08);
-  border: none;
-  color: white;
-  font-size: 1.75rem;
   width: 2.5rem;
   height: 2.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #ffffff;                    /* Standard white color */
+  font-size: 1.8rem;
+  font-weight: 300;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
+  line-height: 1;                    /* Better vertical alignment */
 }
 
 .modal-close-btn:hover {
-  background: #ef4444;
+  background: #ef4444;               /* Red on hover */
+  color: white;
   transform: rotate(90deg);
+}
+
+/* Optional: Make it even cleaner on hover */
+.modal-close-btn:active {
+  transform: scale(0.95) rotate(90deg);
 }
 
 .qr-modal h3 {
@@ -2836,12 +2846,21 @@ ul li a:hover {
 }
 
 .qr-form input {
-  padding: 0.9rem 1.1rem;
+  padding: 0.85rem 1.1rem;           /* Slightly reduced padding for better look */
   border-radius: 8px;
-  border: 1px solid #334155;
+  border: 1px solid #475569;         /* Lighter + thinner border color */
   background: #0f172a;
   color: #e2e8f0;
   font-size: 1rem;
+  width: 100%;                       /* Ensures full width */
+  transition: border-color 0.2s ease;
+}
+
+/* Optional: Nice focus effect */
+.qr-form input:focus {
+  outline: none;
+  border-color: #eab308;             
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15);
 }
 
 .btn-submit-qr {
@@ -2859,7 +2878,7 @@ ul li a:hover {
 
 .btn-submit-qr:hover:not(:disabled) {
   background: #059669;
-  transform: translateY(-1px);
+  
 }
 
 .btn-submit-qr:disabled {
@@ -3967,52 +3986,32 @@ textarea {
 /* ────────────────────────────────────────────────
    QR Modal – Clean, modern, mobile-friendly
 ───────────────────────────────────────────────── */
+
 .qr-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.88);
+  background: rgba(0, 0, 0, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2000;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
 }
 
 .qr-modal {
   background: #0f172a;
-  border-radius: 16px;
+  border-radius: 12px;
   width: 90%;
-  max-width: 460px;
-  padding: 2.5rem 1.8rem;
+  max-width: 380px;
+  padding: 1.5rem;
   position: relative;
   border: 1px solid #1e293b;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   color: #e2e8f0;
+  overflow: hidden;
 }
 
-.modal-close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1.25rem;
-  background: rgba(255, 255, 255, 0.08);
-  border: none;
-  color: white;
-  font-size: 1.75rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.25s ease;
-}
-
-.modal-close-btn:hover {
-  background: #ef4444;
-  transform: rotate(90deg);
-}
-
+/* Modal Header */
 .qr-modal h3 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -4027,6 +4026,9 @@ textarea {
   text-align: center;
   margin-bottom: 1.75rem;
   color: #fbbf24;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
 }
 
 .qr-code-container {
@@ -4034,7 +4036,7 @@ textarea {
   margin-bottom: 2rem;
 }
 
-.qr-image {
+.qr-code-container img {
   width: 220px;
   height: 220px;
   object-fit: contain;
@@ -4052,6 +4054,7 @@ textarea {
   font-size: 0.95rem;
 }
 
+/* QR Form */
 .qr-form {
   display: grid;
   gap: 1.25rem;
@@ -4072,28 +4075,15 @@ textarea {
   font-size: 1rem;
 }
 
-.btn-submit-qr {
-  width: 100%;
-  background: #10b981;
-  color: white;
-  padding: 0.95rem;
-  border-radius: 8px;
-  border: none;
-  font-weight: 700;
-  font-size: 1.05rem;
-  cursor: pointer;
-  transition: all 0.25s ease;
+.form-hint {
+  color: #f59e0b;
+  font-size: 0.85rem;
+  margin-top: 8px;
+  text-align: center;
+  font-style: italic;
 }
 
-.btn-submit-qr:hover:not(:disabled) {
-  background: #059669;
-  transform: translateY(-1px);
-}
 
-.btn-submit-qr:disabled {
-  background: #4b5563;
-  cursor: not-allowed;
-}
 
 .qr-footer {
   text-align: center;
@@ -4103,7 +4093,7 @@ textarea {
   line-height: 1.4;
 }
 
-/* Success message inside modal */
+/* Success Message */
 .qr-success-message {
   text-align: center;
   padding: 2rem 1rem;
@@ -4126,7 +4116,7 @@ textarea {
   margin-top: 1.25rem;
 }
 
-/* Form grid (unchanged – just for reference) */
+/* Form Grid (for main checkout page) */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -4139,7 +4129,11 @@ textarea {
     gap: 2.5rem;
   }
 }
-/* ===== TRIAL BANNER ===== */
+
+/* ────────────────────────────────────────────────
+   Trial Banner
+───────────────────────────────────────────────── */
+
 .trial-banner {
   background: linear-gradient(135deg, #10141e, #1a1f2e);
   border: 1px solid #ffc107;
@@ -4201,9 +4195,7 @@ textarea {
   box-shadow: 0 12px 32px rgba(255, 193, 7, 0.45);
 }
 
-/* Existing pricing styles remain the same... */
-
-/* Responsive for trial banner */
+/* Responsive */
 @media (max-width: 768px) {
   .trial-banner {
     flex-direction: column;

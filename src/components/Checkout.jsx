@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import { FaLock, FaCheckCircle, FaShieldAlt, FaSpinner } from "react-icons/fa";
+import { FaLock, FaCheckCircle, FaShieldAlt, FaSpinner,FaTimes } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import QRCode from "qrcode";
 
@@ -12,7 +12,7 @@ export const CheckOut = () => {
   };
 
 
-  const API_URL = "https://script.google.com/macros/s/AKfycbxWv1RRuIkF8bQjv99PDAyW-jqocuAQo9zF1It791WUNGn74sjveaRoRPnkU3cl-8yQ/exec";
+  const API_URL = "https://script.google.com/macros/s/AKfycbxEEDL-a8gHibi3YkdyrVYdx2tWXd0g4W49XrGNtYQbinzBmiFA4nfQkmJ8cDJ7omk/exec";
 
   const [formData, setFormData] = useState({
     name: "",
@@ -55,7 +55,14 @@ export const CheckOut = () => {
     }, 800);
   };
 
-
+// Add this near your other useEffects
+useEffect(() => {
+  if (!showQRPopup) {
+    setTransactionId("");
+    setTradeviewUserId("");
+    setPaymentSubmitted(false);
+  }
+}, [showQRPopup]);
 
   const handlePayClick = async (e) => {
     e.preventDefault();
@@ -96,39 +103,47 @@ export const CheckOut = () => {
   };
 
   const handleQRSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!transactionId.trim() || !tradeviewUserid.trim()) {
-      alert("Please enter both Transaction ID / UTR and Tradeview UserID");
-      return;
-    }
+  if (!transactionId.trim() || !tradeviewUserid.trim()) {
+    alert("Please enter both Transaction ID / UTR and Tradeview UserID");
+    return;
+  }
 
-    setIsLoading(true);
+  setIsLoading(true);
 
-    try {
-      await fetch(API_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify({
-          action: "update",
-          orderId,
-          transactionId,
-          tradeviewUserid,
-        }),
-      });
+  try {
+    await fetch(API_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify({
+        action: "update",
+        orderId,
+        transactionId,
+        tradeviewUserid,
+      }),
+    });
 
-      setPaymentSubmitted(true);
+   
+    setTransactionId("");
+    setTradeviewUserId("");
 
-      setTimeout(() => {
-        setShowQRPopup(false);
-      }, 5000);
-    } catch (err) {
-      alert("Failed to submit payment details. Please try again.");
-    }
+    // Show success message
+    setPaymentSubmitted(true);
 
-    setIsLoading(false);
-  };
+    // Auto close modal after 5 seconds and reset everything
+    setTimeout(() => {
+      setShowQRPopup(false);
+      
+    }, 5000);
+
+  } catch (err) {
+    alert("Failed to submit payment details. Please try again.");
+  }
+
+  setIsLoading(false);
+};
 
   // Calculations
   const basePrice = selectedPlan.price;
@@ -141,11 +156,11 @@ const upiString = `upi://pay?pa=karunya.tm3-3@okicici&pn=OptionQuant&tn=${orderI
     const generateQR = async () => {
       try {
         const url = await QRCode.toDataURL(upiString, {
-          width: 200,        // 300px size
-          margin: 2,         // small white border
+          width: 200,        
+          margin: 2,        
           color: {
-            dark: "#000000", // black QR code
-            light: "#FFFFFF" // white background
+            dark: "#000000", 
+            light: "#FFFFFF" 
           },
           errorCorrectionLevel: "H" // high for easier scanning
         });
@@ -359,7 +374,7 @@ const upiString = `upi://pay?pa=karunya.tm3-3@okicici&pn=OptionQuant&tn=${orderI
         <div className="qr-modal-overlay" onClick={() => setShowQRPopup(false)}>
           <div className="qr-modal" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close-btn" onClick={() => setShowQRPopup(false)}>
-              ×
+            <FaTimes size={18} />
             </button>
 
             <h3>Complete Payment – {selectedPlan.name}</h3>
@@ -388,34 +403,43 @@ const upiString = `upi://pay?pa=karunya.tm3-3@okicici&pn=OptionQuant&tn=${orderI
                   <p className="qr-instruction">Scan & Pay via any UPI app</p>
                 </div>
 
-                <form onSubmit={handleQRSubmit} className="qr-form">
-                  <label htmlFor="transaction-id">Transaction ID / UTR Number</label>
-                  <input
-                    id="transaction-id"
-                    type="text"
-                    placeholder="Enter your Transaction ID / UTR"
-                    value={transactionId}
-                    onChange={(e) => setTransactionId(e.target.value.trim())}
-                    required
-                  />
-                  <label htmlFor="tradeviewUser-id">Tradeview UserID</label>
-                  <input
-                    id="tradeviewUser-id"
-                    type="text"
-                    placeholder="Enter your Tradeview UserID"
-                    value={tradeviewUserid}
-                    onChange={(e) => setTradeviewUserId(e.target.value.trim())}
-                    required
-                  />
+             <form onSubmit={handleQRSubmit} className="qr-form">
+  <label htmlFor="transaction-id">Transaction ID / UTR Number</label>
+  <input
+    id="transaction-id"
+    type="text"
+    placeholder="Enter your Transaction ID / UTR"
+    value={transactionId}
+    onChange={(e) => setTransactionId(e.target.value.trim())}
+    required
+  />
 
-                  <button type="submit" className="btn-submit-qr" disabled={isLoading}>
-                    {isLoading ? "Submitting..." : "Submit Payment Details"}
-                  </button>
-                </form>
+  <label htmlFor="tradeviewUser-id">Tradeview UserID</label>
+  <input
+    id="tradeviewUser-id"
+    type="text"
+    placeholder="Enter your Tradeview UserID"
+    value={tradeviewUserid}
+    onChange={(e) => setTradeviewUserId(e.target.value.trim())}
+    required
+  />
 
-                <p className="qr-footer">
-                  Please enter the Transaction ID / UTR after completing payment.
-                </p>
+  <button 
+    type="submit" 
+    className="btn-submit-qr" 
+    disabled={!transactionId.trim() || !tradeviewUserid.trim() || isLoading}
+  >
+    {isLoading ? "Submitting..." : "Submit Payment Details"}
+  </button>
+
+  {/* Hover message when button is disabled */}
+  {(!transactionId.trim() || !tradeviewUserid.trim()) && !isLoading && (
+    <p className="form-hint">
+      Please enter both Transaction ID / UTR and Tradeview UserID to submit
+    </p>
+  )}
+</form>
+               
               </>
             )}
           </div>
