@@ -34,7 +34,7 @@ export const CheckOut = () => {
   // Error states - shown only after submission attempt
   const [phoneError, setPhoneError] = useState("");
   const [transactionError, setTransactionError] = useState("");
-  const [showErrors, setShowErrors] = useState(false);   // Controls when errors appear
+ 
 
   const [orderId] = useState(() =>
     `ORD-${Date.now()}-${Math.floor(Math.random() * 1000)}`
@@ -72,7 +72,7 @@ export const CheckOut = () => {
       setTradeviewUserId("");
       setTransactionError("");
       setPaymentSubmitted(false);
-      setShowErrors(false);
+      
     }
   }, [showQRPopup]);
 
@@ -117,10 +117,7 @@ export const CheckOut = () => {
     const phoneErr = validatePhone(formData.phone);
     setPhoneError(phoneErr);
 
-    if (phoneErr) {
-      setShowErrors(true);
-      return;
-    }
+    
 
     setIsLoading(true);
 
@@ -156,7 +153,7 @@ export const CheckOut = () => {
 
       setShowQRPopup(true);
       setPaymentSubmitted(false);
-      setShowErrors(false);
+      
 
     } catch (err) {
       console.error("Order creation failed:", err);
