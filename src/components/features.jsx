@@ -58,23 +58,20 @@ export const Features = () => {
         </div>
 
         {/* CARDS */}
-        <div className="row justify-content-center g-4 mt-4">
-          {features.map((item, index) => (
-            <div key={index} className="col-lg-3 col-md-6 col-sm-12 d-flex">
-              <div className="feature-card flex-fill">
+        {/* CARDS - Fixed & Centered */}
+<div className="features-grid">
+  {features.map((item, index) => (
+    <div key={index} className="feature-card">
+      <div className={`feature-icon ${item.color}`}>
+        {item.icon}
+      </div>
 
-                <div className={`feature-icon ${item.color}`}>
-                  {item.icon}
-                </div>
-
-                <h4 className="feature-title">{item.title}</h4>
-                <div className="card-divider" />
-                <p>{item.text}</p>
-
-              </div>
-            </div>
-          ))}
-        </div>
+      <h4 className="feature-title">{item.title}</h4>
+      <div className="card-divider" />
+      <p>{item.text}</p>
+    </div>
+  ))}
+</div>
 
       </div>
     </section>

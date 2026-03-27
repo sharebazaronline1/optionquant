@@ -58,7 +58,7 @@ export const Contact = () => {
           <span className="brand-q">Q</span>
           <span className="brand-text">uaant</span>
 
-          <p className="tagline">Professional Trade Identification System</p><br></br>
+          <p className="tagline">Professional Trade Identification System</p>
           <p className="tagline">OptionQuaant.in is managed by KBD Group Enterprise, a firm focused on providing quantitative trading strategies, market intelligence, and technology-driven solutions to empower traders with disciplined and informed decision-making.</p>
 
           <div className="contact-lines">

@@ -1,12 +1,73 @@
+/* ===== GLOBAL RESET & DARK THEME ===== */
 body,
 html {
   font-family: "Open Sans", sans-serif;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
-  color: #777;
+  color: #e5e7eb;
   font-weight: 400;
   width: 100% !important;
   height: 100% !important;
+  background: #0a0e15;           /* Dark background */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* ===== FEATURES GRID - FIXED MOBILE WIDTH & CENTERED ===== */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 5px auto 0;
+  padding: 0 12px;                    /* Reduced horizontal padding */
+  justify-content: center;
+}
+
+/* Desktop: 4 cards in one line */
+@media (min-width: 992px) {
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    padding: 0 20px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 991px) and (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 16px;
+  }
+}
+
+/* Mobile - Tight & Full Width */
+@media (max-width: 767px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;                  /* Very tight padding on mobile */
+  }
+
+  .feature-card {
+    padding: 28px 20px;               /* Good inner padding */
+    min-height: 260px;
+    width: 100%;                      /* Force full available width */
+  }
+}
+
+@media (max-width: 480px) {
+  .features-grid {
+    padding: 0 8px;                   /* Even tighter on very small screens */
+  }
+
+  .feature-card {
+    padding: 26px 18px;
+  }
+}
+.intro {
+  background-color: #0a0e15 !important;   
 }
 h2,
 h3,
@@ -732,6 +793,12 @@ ul li a:hover {
   font-weight: 800;
   margin-bottom: 6px;
   color: #ffff
+}
+/* Mobile adjustment - add extra top margin */
+@media (max-width: 768px) {
+  .hero-brand h4 {
+    margin-top: 20px;   
+  }
 }
 
 .hero-brand h4 span {
@@ -4207,4 +4274,14 @@ textarea {
     width: 100%;
     text-align: center;
   }
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin: 5px 0 0 2px;
+}
+
+.form-field {
+  position: relative;
 }

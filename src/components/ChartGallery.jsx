@@ -247,7 +247,7 @@ export const ChartGallery = () => {
   const [submitted, setSubmitted] = useState(false);
   const [hoveredRating, setHoveredRating] = useState(0);
 
-  const itemsPerPage = 3;
+  const itemsPerPage = 6;
   const totalPages = Math.ceil(testimonials.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentItems = testimonials.slice(startIndex, startIndex + itemsPerPage);
