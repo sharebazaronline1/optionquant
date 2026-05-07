@@ -385,13 +385,29 @@ export const ChartGallery = () => {
       </div>
 
       {selectedImage && (
-        <div className="image-modal" onClick={() => setSelectedImage(null)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <img src={selectedImage} alt="Trade Result" className="modal-image" />
-            <button className="modal-close">✕</button>
-          </div>
-        </div>
-      )}
+  <div
+    className="image-modal"
+    onClick={() => setSelectedImage(null)}
+  >
+    <div
+      className="modal-content"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <button
+        className="modal-close"
+        onClick={() => setSelectedImage(null)}
+      >
+        ✕
+      </button>
+
+      <img
+        src={selectedImage}
+        alt="Trade Result"
+        className="modal-image"
+      />
+    </div>
+  </div>
+)}
     </section>
   );
 };
