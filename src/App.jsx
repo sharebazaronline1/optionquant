@@ -11,7 +11,8 @@ import {RefundPolicy} from "./components/RefundPolicy"
 import {ChartGallery} from "./components/ChartGallery"
 import {TermsAndConditions} from "./components/TermsAndConditions";
 import {DisclaimerAndPrivacy} from "./components/DisclaimerAndPrivacy";
-import {Pricing} from "./components/Pricing"
+import {Pricing} from "./components/Pricing";
+import Signals from "./components/Signals";
 import { Contact } from "./components/contact";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
@@ -78,6 +79,7 @@ return (
       <Route path="/gallery" element={<ChartGallery />} />
       <Route path="/lifetime" element={<LifetimeCTA />} />
       <Route path="/checkout" element={<CheckOut />} />
+      <Route path="/signals" element={<Signals />} />
 
       {/* 404 */}
       <Route path="*" element={<NotFound />} />

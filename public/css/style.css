@@ -2832,36 +2832,56 @@ ul li a:hover {
 }
 
 .modal-close-btn {
-  position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  color: #ffffff;                    /* Standard white color */
-  font-size: 1.8rem;
-  font-weight: 300;
-  border-radius: 50%;
-  cursor: pointer;
+  position: fixed;
+  top: 16px;
+  right: 16px;
+
+  width: 38px;
+  height: 38px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-  line-height: 1;                    /* Better vertical alignment */
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+
+  background: rgba(17, 24, 39, 0.82);
+  backdrop-filter: blur(10px);
+
+  color: #ffffff;
+
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1;
+
+  cursor: pointer;
+  z-index: 999999;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .modal-close-btn:hover {
-  background: #ef4444;               /* Red on hover */
-  color: white;
+  background: rgba(239, 68, 68, 0.9);
   transform: rotate(90deg);
 }
 
-/* Optional: Make it even cleaner on hover */
 .modal-close-btn:active {
-  transform: scale(0.95) rotate(90deg);
+  transform: scale(0.94) rotate(90deg);
 }
 
+@media (max-width: 768px) {
+  .modal-close-btn {
+    width: 34px;
+    height: 34px;
+    top: 12px;
+    right: 12px;
+    font-size: 18px;
+  }
+}
 .qr-modal h3 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -3962,19 +3982,55 @@ textarea {
 
 /* Close Button */
 .modal-close {
-  position: absolute;
-  top: -14px;
-  right: -14px;
-  background: #ffc107;
-  color: #000;
-  border: none;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  font-size: 1.2rem;
+  position: fixed;
+  top: 16px;
+  right: 16px;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+
+  background: rgba(17, 24, 39, 0.82);
+  backdrop-filter: blur(10px);
+
+  color: #ffffff;
+
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1;
+
   cursor: pointer;
-  font-weight: bold;
-  box-shadow: 0 4px 16px rgba(255,193,7,0.5);
+  z-index: 999999;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.modal-close:hover {
+  background: rgba(239, 68, 68, 0.9);
+  transform: rotate(90deg);
+}
+
+.modal-close:active {
+  transform: scale(0.94) rotate(90deg);
+}
+
+@media (max-width: 768px) {
+  .modal-close {
+    width: 34px;
+    height: 34px;
+    top: 12px;
+    right: 12px;
+    font-size: 18px;
+  }
 }
 
 /* Fade animation */
@@ -4284,4 +4340,290 @@ textarea {
 
 .form-field {
   position: relative;
+}
+
+.signals-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0d1220, #070b13);
+  color: #e5e7eb;
+  padding-bottom: 100px;
+}
+
+.signals-hero {
+  text-align: center;
+  padding: 90px 20px 40px;
+}
+
+.signals-badge {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.12);
+  color: #22c55e;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.signals-hero h1 {
+  font-size: 68px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.signals-hero p {
+  color: #94a3b8;
+  font-size: 18px;
+}
+
+.signals-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+   padding-top: 0.5rem;   
+}
+
+.signals-loading,
+.signals-empty {
+  text-align: center;
+  padding: 120px 20px;
+  color: #cbd5e1;
+  font-size: 20px;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.signals-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+}
+
+.carousel-arrow {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(15, 23, 42, 0.9);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.25s;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.carousel-arrow:hover {
+  background: #16a34a;
+  transform: scale(1.08);
+}
+
+.signal-card {
+  width: 100%;
+  max-width: 720px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(15,23,42,0.96),
+      rgba(2,6,23,0.98)
+    );
+
+  border-radius: 28px;
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,0.06);
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.45);
+}
+
+.signal-image-wrap {
+  position: relative;
+  height: 360px;
+  overflow: hidden;
+  cursor: pointer;
+  background: black;
+}
+
+.signal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: 0.5s;
+}
+
+.signal-image-wrap:hover .signal-image {
+  transform: scale(1.03);
+}
+
+.signal-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  background: rgba(0,0,0,0.45);
+
+  opacity: 0;
+  transition: 0.3s;
+
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.signal-image-wrap:hover .signal-overlay {
+  opacity: 1;
+}
+
+.signal-body {
+  padding: 28px;
+}
+
+.signal-meta-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.signal-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.signal-title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: white;
+}
+
+.signal-modal {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.9);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 999999;
+  padding: 40px;
+}
+
+.signal-modal-content {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.signal-modal-image {
+  width: 100%;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 18px;
+}
+
+.signal-close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+
+  background: rgba(17, 24, 39, 0.82);
+  backdrop-filter: blur(10px);
+
+  color: #ffffff;
+
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1;
+
+  cursor: pointer;
+  z-index: 999999;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.signal-close:hover {
+  background: rgba(239, 68, 68, 0.9);
+  transform: rotate(90deg);
+}
+
+.signal-close:active {
+  transform: scale(0.94) rotate(90deg);
+}
+
+@media (max-width: 768px) {
+  .signal-close {
+    width: 34px;
+    height: 34px;
+    top: 12px;
+    right: 12px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .signals-hero h1 {
+    font-size: 42px;
+  }
+
+  .signals-carousel {
+    gap: 10px;
+  }
+
+  .carousel-arrow {
+    width: 42px;
+    height: 42px;
+    font-size: 14px;
+  }
+
+  .signal-image-wrap {
+    height: 220px;
+  }
+
+  .signal-title {
+    font-size: 22px;
+  }
+
+  .signal-close {
+    top: 14px;
+    right: 14px;
+    width: 44px;
+    height: 44px;
+  }
 }

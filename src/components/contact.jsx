@@ -79,7 +79,7 @@ export const Contact = () => {
         <div className="oq-col">
           <ul>
           <li><a href="/">About Us</a></li>
-          
+          <li><a href="/signals">Signals</a></li>
             <li><a href="/gallery">Gallery</a></li>
             <li><a href="/pricing">Pricing</a></li>
             <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
